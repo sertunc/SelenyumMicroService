@@ -1,9 +1,9 @@
-﻿using CatalogService.Api.Domain;
-using CatalogService.Api.Infrastruture.Context;
+﻿using CatalogService.Data.Abstractions.Entities;
+using CatalogService.Data.EFCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CatalogService.Api.Infrastruture.EntityConfigurations
+namespace CatalogService.Data.EFCore.EntityConfigurations
 {
     public class CatalogItemEntityTypeConfiguration : IEntityTypeConfiguration<CatalogItem>
     {

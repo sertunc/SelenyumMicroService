@@ -1,12 +1,20 @@
-﻿using CatalogService.Api.Domain;
-using CatalogService.Api.Infrastruture.Context;
+﻿using CatalogService.Data.Abstractions.Entities;
+using CatalogService.Data.Abstractions.Interfaces;
+using CatalogService.Data.EFCore.Context;
+using CatalogService.Data.EFCore.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-namespace CatalogService.Api.Infrastruture
+namespace CatalogService.Api.Extensions
 {
-    public static class SeedData
+    public static class ConfigureDbContext
     {
-        public static void AddDbContextSeeds(IServiceCollection services)
+        public static void AddDbContextConfigurations(this IServiceCollection services, ConfigurationManager config)
         {
+            string? connectionString = config.GetConnectionString("CatalogDbContext");
+            ArgumentNullException.ThrowIfNull(connectionString);
+
+            services.AddDbContext<CatalogDbContext>(x => x.UseSqlServer(connectionString));
+
             var dbContext = services.BuildServiceProvider().GetService<CatalogDbContext>();
 
             var isAlreadyInitialized = !dbContext.Database.EnsureCreated();
@@ -17,6 +25,11 @@ namespace CatalogService.Api.Infrastruture
 
                 dbContext.SaveChanges();
             }
+        }
+
+        public static void AddDbContextRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<ICatalogRepository, CatalogRepository>();
         }
 
         private static void SetSeeds(CatalogDbContext catalogDbContext)

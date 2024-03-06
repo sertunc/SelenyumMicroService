@@ -1,4 +1,4 @@
-﻿namespace CatalogService.Api.Domain
+﻿namespace CatalogService.Data.Abstractions.Entities
 {
     public class CatalogBrand
     {

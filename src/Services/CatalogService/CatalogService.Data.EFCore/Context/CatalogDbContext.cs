@@ -1,8 +1,8 @@
-﻿using CatalogService.Api.Domain;
-using CatalogService.Api.Infrastruture.EntityConfigurations;
+﻿using CatalogService.Data.Abstractions.Entities;
+using CatalogService.Data.EFCore.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace CatalogService.Api.Infrastruture.Context
+namespace CatalogService.Data.EFCore.Context
 {
     public class CatalogDbContext : DbContext
     {
