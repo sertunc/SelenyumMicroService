@@ -54,6 +54,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentService", "PaymentSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.Api", "src\Services\PaymentService\PaymentService.Api\PaymentService.Api.csproj", "{806ED395-D1FF-40C7-8FDE-EBF1F6CA297D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelenyumMicroService.Shared", "src\Shared\SelenyumMicroService.Shared\SelenyumMicroService.Shared.csproj", "{1C5A4D92-A44D-4997-9062-120569C11637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +104,10 @@ Global
 		{806ED395-D1FF-40C7-8FDE-EBF1F6CA297D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{806ED395-D1FF-40C7-8FDE-EBF1F6CA297D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{806ED395-D1FF-40C7-8FDE-EBF1F6CA297D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5A4D92-A44D-4997-9062-120569C11637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5A4D92-A44D-4997-9062-120569C11637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5A4D92-A44D-4997-9062-120569C11637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5A4D92-A44D-4997-9062-120569C11637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +135,8 @@ Global
 		{60F73286-9567-4CBF-BE47-B6E10FCF07C1} = {53F4D9E2-378B-4CA0-B7FB-9066F59A5680}
 		{080BBEAD-F828-4876-90B1-958A9B4CF053} = {375C6869-EDF0-4C84-BC75-A9A45E7277AB}
 		{806ED395-D1FF-40C7-8FDE-EBF1F6CA297D} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
+		{A41620B9-FEFA-4F25-B06D-A6232C5FA6AF} = {4AFD1446-87D6-47A7-A35A-D67F7FD53169}
+		{1C5A4D92-A44D-4997-9062-120569C11637} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB633C38-45BE-4D3D-BC1C-2BAFB509B455}

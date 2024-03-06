@@ -1,4 +1,4 @@
-﻿namespace CatalogService.Api.Application.ViewModels
+﻿namespace SelenyumMicroService.Shared.Dtos
 {
     public class PaginatedItemsViewModel<TEntity> where TEntity : class
     {

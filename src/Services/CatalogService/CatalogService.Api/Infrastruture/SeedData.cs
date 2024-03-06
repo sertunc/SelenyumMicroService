@@ -1,11 +1,11 @@
 ﻿using CatalogService.Api.Domain;
 using CatalogService.Api.Infrastruture.Context;
 
-namespace CatalogService.Api.Extensions
+namespace CatalogService.Api.Infrastruture
 {
-    public static class ConfigureDbContext
+    public static class SeedData
     {
-        public static void AddDbContextSeeds(this IServiceCollection services)
+        public static void AddDbContextSeeds(IServiceCollection services)
         {
             var dbContext = services.BuildServiceProvider().GetService<CatalogDbContext>();
 

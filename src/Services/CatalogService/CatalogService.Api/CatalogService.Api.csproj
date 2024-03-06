@@ -14,8 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Controllers\" />
-		<Folder Include="Infrastruture\Seeds\" />
+		<Folder Include="Application\" />
 	</ItemGroup>
 
 </Project>
