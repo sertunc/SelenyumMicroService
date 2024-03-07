@@ -1,7 +1,13 @@
-﻿namespace CatalogService.Data.Abstractions.Interfaces
+﻿using CatalogService.Data.Abstractions.Entities;
+
+namespace CatalogService.Data.Abstractions.Interfaces
 {
     public interface ICatalogRepository
     {
-        bool IsRunning(int id);
+        Task<CatalogItem> GetCatalogItemAsync(int id);
+
+        Task<int> GetCatalogItemsTotalAsync();
+
+        Task<IEnumerable<CatalogItem>> GetCatalogItemsAsync(int pageSize, int pageIndex);
     }
 }

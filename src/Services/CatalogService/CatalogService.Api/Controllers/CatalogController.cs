@@ -1,4 +1,4 @@
-﻿using CatalogService.Data.Abstractions.Interfaces;
+﻿using CatalogService.Business.Abstractions.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatalogService.Api.Controllers
@@ -8,21 +8,36 @@ namespace CatalogService.Api.Controllers
     public class CatalogController : ControllerBase
     {
         private readonly ILogger<CatalogController> _logger;
-        private readonly ICatalogRepository _repository;
+        private readonly ICatalogBusiness _catalogBusiness;
 
         public CatalogController(
             ILogger<CatalogController> logger,
-            ICatalogRepository repository)
+            ICatalogBusiness catalogBusiness)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _catalogBusiness = catalogBusiness ?? throw new ArgumentNullException(nameof(catalogBusiness));
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        [Route("Items/{id}")]
+        public async Task<IActionResult> ItemById(int id)
         {
-            var result = _repository.IsRunning(1);
-            return Ok($"App is running... {result}");
+            _logger.LogInformation("Getting catalog item by id");
+
+            var result = await _catalogBusiness.GetCatalogItemAsync(id);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("Items")]
+        public async Task<IActionResult> Items([FromQuery] int pageSize = 10, [FromQuery] int pageIndex = 0)
+        {
+            _logger.LogInformation("Getting catalog items");
+
+            var result = await _catalogBusiness.GetCatalogItemsAsync(pageSize, pageIndex);
+
+            return Ok(result);
         }
     }
 }
