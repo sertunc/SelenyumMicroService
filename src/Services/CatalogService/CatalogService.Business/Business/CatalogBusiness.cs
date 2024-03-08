@@ -20,6 +20,24 @@ namespace CatalogService.Business.Business
             _catalogRepository = catalogRepository ?? throw new ArgumentNullException(nameof(catalogRepository));
         }
 
+        public async Task<Response<IEnumerable<CatalogTypesViewModel>>> GetCatalogTypesAsync()
+        {
+            var catalogTypes = await _catalogRepository.GetCatalogTypesAsync();
+
+            var result = _mapper.Map<IEnumerable<CatalogTypesViewModel>>(catalogTypes);
+
+            return Response<IEnumerable<CatalogTypesViewModel>>.Success(result);
+        }
+
+        public async Task<Response<IEnumerable<CatalogBrandsViewModel>>> GetCatalogBrandsAsync()
+        {
+            var catalogTypes = await _catalogRepository.GetCatalogBrandsAsync();
+
+            var result = _mapper.Map<IEnumerable<CatalogBrandsViewModel>>(catalogTypes);
+
+            return Response<IEnumerable<CatalogBrandsViewModel>>.Success(result);
+        }
+
         public async Task<Response<CatalogItemViewModel>> GetCatalogItemAsync(int id)
         {
             var catalogItem = await _catalogRepository.GetCatalogItemAsync(id);

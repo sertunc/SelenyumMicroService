@@ -15,6 +15,16 @@ namespace CatalogService.Data.EFCore.Repositories
             this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
+        public async Task<IEnumerable<CatalogType>> GetCatalogTypesAsync()
+        {
+            return await dbContext.CatalogTypes.ToListAsync();
+        }
+
+        public async Task<IEnumerable<CatalogBrand>> GetCatalogBrandsAsync()
+        {
+            return await dbContext.CatalogBrands.ToListAsync();
+        }
+
         public async Task<CatalogItem> GetCatalogItemAsync(int id)
         {
             return await dbContext.CatalogItems.FirstOrDefaultAsync(x => x.Id == id);

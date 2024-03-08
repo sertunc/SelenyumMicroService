@@ -19,14 +19,36 @@ namespace CatalogService.Api.Controllers
         }
 
         [HttpGet]
+        [Route("CatalogTypes")]
+        public async Task<IActionResult> CatalogTypes()
+        {
+            _logger.LogInformation("Getting catalog types");
+
+            var result = await _catalogBusiness.GetCatalogTypesAsync();
+
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet]
+        [Route("CatalogBrands")]
+        public async Task<IActionResult> CatalogBrands()
+        {
+            _logger.LogInformation("Getting catalog brands");
+
+            var result = await _catalogBusiness.GetCatalogBrandsAsync();
+
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet]
         [Route("Items/{id}")]
         public async Task<IActionResult> ItemById(int id)
         {
-            _logger.LogInformation("Getting catalog item by id");
+            _logger.LogInformation("Getting catalog item by id={0}", id);
 
             var result = await _catalogBusiness.GetCatalogItemAsync(id);
 
-            return Ok(result);
+            return StatusCode(result.StatusCode, result);
         }
 
         [HttpGet]
@@ -37,7 +59,7 @@ namespace CatalogService.Api.Controllers
 
             var result = await _catalogBusiness.GetCatalogItemsAsync(pageSize, pageIndex);
 
-            return Ok(result);
+            return StatusCode(result.StatusCode, result);
         }
     }
 }
