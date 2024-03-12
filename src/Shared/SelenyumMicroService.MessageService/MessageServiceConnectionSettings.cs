@@ -1,4 +1,4 @@
-﻿namespace SelenyumMicroService.Shared.MessageService
+﻿namespace SelenyumMicroService.MessageService
 {
     public class MessageServiceConnectionSettings : IMessageServiceConnectionSettings
     {
