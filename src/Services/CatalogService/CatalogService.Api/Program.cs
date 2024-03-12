@@ -1,5 +1,6 @@
-using CatalogService.Api.Extensions;
 using CatalogService.Business.Mapping;
+using CatalogService.Business.Extensions;
+using CatalogService.Data.EFCore.Extensions;
 using SelenyumMicroService.Bootstrapper;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -22,7 +22,7 @@ namespace CatalogService.Api.Controllers
         [Route("CatalogTypes")]
         public async Task<IActionResult> CatalogTypes()
         {
-            _logger.LogInformation("Getting catalog types");
+            _logger.LogDebug("Getting catalog types");
 
             var result = await _catalogBusiness.GetCatalogTypesAsync();
 
@@ -33,7 +33,7 @@ namespace CatalogService.Api.Controllers
         [Route("CatalogBrands")]
         public async Task<IActionResult> CatalogBrands()
         {
-            _logger.LogInformation("Getting catalog brands");
+            _logger.LogDebug("Getting catalog brands");
 
             var result = await _catalogBusiness.GetCatalogBrandsAsync();
 
@@ -44,7 +44,7 @@ namespace CatalogService.Api.Controllers
         [Route("Items/{id}")]
         public async Task<IActionResult> ItemById(int id)
         {
-            _logger.LogInformation("Getting catalog item by id={0}", id);
+            _logger.LogDebug("Getting catalog item by id={0}", id);
 
             var result = await _catalogBusiness.GetCatalogItemAsync(id);
 
@@ -55,7 +55,7 @@ namespace CatalogService.Api.Controllers
         [Route("Items")]
         public async Task<IActionResult> Items([FromQuery] int pageSize = 10, [FromQuery] int pageIndex = 0)
         {
-            _logger.LogInformation("Getting catalog items");
+            _logger.LogDebug("Getting catalog items");
 
             var result = await _catalogBusiness.GetCatalogItemsAsync(pageSize, pageIndex);
 

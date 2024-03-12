@@ -3,8 +3,10 @@ using CatalogService.Data.Abstractions.Interfaces;
 using CatalogService.Data.EFCore.Context;
 using CatalogService.Data.EFCore.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace CatalogService.Api.Extensions
+namespace CatalogService.Data.EFCore.Extensions
 {
     public static class ConfigureDbContext
     {

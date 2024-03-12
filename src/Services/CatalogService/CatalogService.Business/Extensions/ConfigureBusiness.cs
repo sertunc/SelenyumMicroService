@@ -1,7 +1,8 @@
 ﻿using CatalogService.Business.Abstractions.Interfaces;
 using CatalogService.Business.Business;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace CatalogService.Api.Extensions
+namespace CatalogService.Business.Extensions
 {
     public static class ConfigureBusiness
     {
