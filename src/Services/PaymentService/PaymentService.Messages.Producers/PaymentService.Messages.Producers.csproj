@@ -7,8 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Publishes\" />
     <Folder Include="Sends\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.1.3" />    
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Shared\SelenyumMicroService.Shared.csproj" />
+    <ProjectReference Include="..\PaymentService.Messages.Producers.Abstractions\PaymentService.Messages.Producers.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
