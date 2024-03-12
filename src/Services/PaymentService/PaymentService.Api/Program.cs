@@ -1,5 +1,5 @@
 using PaymentService.Messages.Producers;
-using SelenyumMicroService.Shared.MessageService;
+using SelenyumMicroService.MessageService;
 
 var builder = WebApplication.CreateBuilder(args);
 

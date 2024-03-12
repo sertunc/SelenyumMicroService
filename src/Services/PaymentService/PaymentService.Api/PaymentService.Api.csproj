@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Shared\SelenyumMicroService.Shared.csproj" />
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.MessageService\SelenyumMicroService.MessageService.csproj" />
     <ProjectReference Include="..\PaymentService.Messages.Producers.Abstractions\PaymentService.Messages.Producers.Abstractions.csproj" />
     <ProjectReference Include="..\PaymentService.Messages.Producers\PaymentService.Messages.Producers.csproj" />
   </ItemGroup>
