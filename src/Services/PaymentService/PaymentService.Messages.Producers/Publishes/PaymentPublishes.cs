@@ -18,14 +18,14 @@ namespace PaymentService.Messages.Producers.Publishes
 
         public async Task PublishPaymentFailedAsync(OrderPaymentFailed orderPaymentFailed)
         {
-            logger.LogDebug("Payment fail event publish with message: {Message} and orderId: {OrderId}", orderPaymentFailed.Error, orderPaymentFailed.OrderId);
+            logger.LogError("Payment fail event publish with message: {Message} and orderId: {OrderId}", orderPaymentFailed.Error, orderPaymentFailed.OrderId);
 
             await bus.Publish(orderPaymentFailed);
         }
 
         public async Task PublishPaymentSucceededAsync(OrderPaymentSucceeded orderPaymentSucceeded)
         {
-            logger.LogDebug("Payment success event publish with orderId: {OrderId}", orderPaymentSucceeded.OrderId);
+            logger.LogWarning("Payment success event publish with orderId: {OrderId}", orderPaymentSucceeded.OrderId);
 
             await bus.Publish(orderPaymentSucceeded);
         }

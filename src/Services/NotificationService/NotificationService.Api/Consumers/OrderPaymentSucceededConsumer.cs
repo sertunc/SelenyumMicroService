@@ -14,7 +14,7 @@ namespace NotificationService.Api.Consumers
 
         public Task Consume(ConsumeContext<OrderPaymentSucceeded> context)
         {
-            _logger.LogDebug("OrderPaymentSucceededConsumer-OrderId: {OrderId} PaymentId: {PaymentId}",
+            _logger.LogWarning("OrderPaymentSucceededConsumer-OrderId: {OrderId} PaymentId: {PaymentId}",
                 context.Message.OrderId,
                 context.Message.PaymentId);
 

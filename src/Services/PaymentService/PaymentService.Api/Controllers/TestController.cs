@@ -20,7 +20,15 @@ namespace PaymentService.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            await _paymentPublishes.PublishPaymentSucceededAsync(new OrderPaymentSucceeded(1598753, 2810727));
+            var orderId = 1598753;
+            var paymentId = 2810727;
+
+            var result = new Random().Next(0, 10) % 2 == 0;
+
+            if (result)
+                await _paymentPublishes.PublishPaymentSucceededAsync(new OrderPaymentSucceeded(orderId, paymentId));
+            else
+                await _paymentPublishes.PublishPaymentFailedAsync(new OrderPaymentFailed(orderId, "credit card error"));
 
             return Ok();
         }
