@@ -90,6 +90,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService.Business", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService.Business.Abstractions", "src\Services\IdentityService\IdentityService.Business.Abstractions\IdentityService.Business.Abstractions.csproj", "{31AD5313-F2C5-4DD2-B999-889D3762A7A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelenyumMicroService.ServiceDiscovery.Consul", "src\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj", "{C345F9AC-A0B6-408F-B559-65BD39A5E301}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -204,6 +206,10 @@ Global
 		{31AD5313-F2C5-4DD2-B999-889D3762A7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31AD5313-F2C5-4DD2-B999-889D3762A7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31AD5313-F2C5-4DD2-B999-889D3762A7A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C345F9AC-A0B6-408F-B559-65BD39A5E301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C345F9AC-A0B6-408F-B559-65BD39A5E301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C345F9AC-A0B6-408F-B559-65BD39A5E301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C345F9AC-A0B6-408F-B559-65BD39A5E301}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -249,6 +255,7 @@ Global
 		{CB278A0C-7F26-4187-9F9F-F1C7E5B95E80} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
 		{85DECF9D-3D9E-4F44-9731-5E3634269579} = {A40B3A9B-068A-418C-82B1-C6DBE7374BC2}
 		{31AD5313-F2C5-4DD2-B999-889D3762A7A4} = {A40B3A9B-068A-418C-82B1-C6DBE7374BC2}
+		{C345F9AC-A0B6-408F-B559-65BD39A5E301} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB633C38-45BE-4D3D-BC1C-2BAFB509B455}

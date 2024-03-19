@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Bootstrapper\SelenyumMicroService.Bootstrapper.csproj" />
+	  <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj" />
 	  <ProjectReference Include="..\CatalogService.Business.Abstractions\CatalogService.Business.Abstractions.csproj" />
 	  <ProjectReference Include="..\CatalogService.Business\CatalogService.Business.csproj" />
 	  <ProjectReference Include="..\CatalogService.Data.EFCore\CatalogService.Data.EFCore.csproj" />
