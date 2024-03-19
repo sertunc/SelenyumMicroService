@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj" />
     <ProjectReference Include="..\IdentityService.Business.Abstractions\IdentityService.Business.Abstractions.csproj" />
     <ProjectReference Include="..\IdentityService.Business\IdentityService.Business.csproj" />
   </ItemGroup>
