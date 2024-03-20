@@ -1,0 +1,36 @@
+CatalogService.Api
+CatalogService.Business
+CatalogService.Business.Abstractions
+CatalogService.Data.Abstractions      -> Entities, Interfaces
+CatalogService.Data.EFCore
+
+IdentityService.Api
+IdentityService.Business              -> Business, Exceptions, Extensions, Mapping
+IdentityService.Business.Abstractions -> Interfaces, Models
+
+PaymentService.Api
+PaymentService.Business
+PaymentService.Business.Abstractions
+PaymentService.Messages -> Commands, Events
+PaymentService.Messages.Producers -> Sends, Publishes
+PaymentService.Messages.Consumers
+PaymentService.Messages.Producers.Abstractions
+PaymentService.Data.Abstractions
+PaymentService.Data.EFCore
+
+
+BasketService.Api
+BasketService.Business
+BasketService.Business.Abstractions
+BasketService.Data.Abstractions
+BasketService.Data.Redis
+
+
+SelenyumMicroService.Bootstrapper
+SelenyumMicroService.MessageService
+SelenyumMicroService.Shared
+SelenyumMicroService.ServiceDiscovery.Consul
+SelenyumMicroService.Caching
+SelenyumMicroService.Caching.Redis
+
+Docker compose fileları yapalım
