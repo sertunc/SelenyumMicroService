@@ -92,17 +92,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.Business.Ab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.ServiceDiscovery.Consul", "src\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj", "{C345F9AC-A0B6-408F-B559-65BD39A5E301}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Business", "src\Services\BasketService\BasketService.Business\BasketService.Business.csproj", "{15253DAB-E4D7-40BF-BB9B-82A94E4F23AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.Business", "src\Services\BasketService\BasketService.Business\BasketService.Business.csproj", "{15253DAB-E4D7-40BF-BB9B-82A94E4F23AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Business.Abstractions", "src\Services\BasketService\BasketService.Business.Abstractions\BasketService.Business.Abstractions.csproj", "{57FEB7E9-19F7-4376-A0A4-9ADDB74AEC57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.Business.Abstractions", "src\Services\BasketService\BasketService.Business.Abstractions\BasketService.Business.Abstractions.csproj", "{57FEB7E9-19F7-4376-A0A4-9ADDB74AEC57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Data.Abstractions", "src\Services\BasketService\BasketService.Data.Abstractions\BasketService.Data.Abstractions.csproj", "{2D6EC8E8-C7EC-46CC-B801-691EDADE52B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.Data.Abstractions", "src\Services\BasketService\BasketService.Data.Abstractions\BasketService.Data.Abstractions.csproj", "{2D6EC8E8-C7EC-46CC-B801-691EDADE52B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Data.Redis", "src\Services\BasketService\BasketService.Data.Redis\BasketService.Data.Redis.csproj", "{CA85CA23-E5C3-45FA-9633-FEA8A875DCD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.Data.Redis", "src\Services\BasketService\BasketService.Data.Redis\BasketService.Data.Redis.csproj", "{CA85CA23-E5C3-45FA-9633-FEA8A875DCD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelenyumMicroService.Caching", "src\Shared\SelenyumMicroService.Caching\SelenyumMicroService.Caching.csproj", "{2029A8DC-C322-4D43-AAF3-84BB512AD53B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.Caching", "src\Shared\SelenyumMicroService.Caching\SelenyumMicroService.Caching.csproj", "{2029A8DC-C322-4D43-AAF3-84BB512AD53B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelenyumMicroService.Caching.Redis", "src\Shared\SelenyumMicroService.Caching.Redis\SelenyumMicroService.Caching.Redis.csproj", "{FF608D45-E3CF-4654-AFF8-46D4621E3272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.Caching.Redis", "src\Shared\SelenyumMicroService.Caching.Redis\SelenyumMicroService.Caching.Redis.csproj", "{FF608D45-E3CF-4654-AFF8-46D4621E3272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelenyumMicroService.Common", "src\Shared\SelenyumMicroService.Common\SelenyumMicroService.Common.csproj", "{03BA4816-269A-4BE3-8302-08DF46EB49A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -246,6 +248,10 @@ Global
 		{FF608D45-E3CF-4654-AFF8-46D4621E3272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF608D45-E3CF-4654-AFF8-46D4621E3272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF608D45-E3CF-4654-AFF8-46D4621E3272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03BA4816-269A-4BE3-8302-08DF46EB49A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BA4816-269A-4BE3-8302-08DF46EB49A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BA4816-269A-4BE3-8302-08DF46EB49A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BA4816-269A-4BE3-8302-08DF46EB49A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -298,6 +304,7 @@ Global
 		{CA85CA23-E5C3-45FA-9633-FEA8A875DCD7} = {C3E1DFCB-C5D0-447D-B476-3DD5842307E3}
 		{2029A8DC-C322-4D43-AAF3-84BB512AD53B} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
 		{FF608D45-E3CF-4654-AFF8-46D4621E3272} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
+		{03BA4816-269A-4BE3-8302-08DF46EB49A3} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB633C38-45BE-4D3D-BC1C-2BAFB509B455}

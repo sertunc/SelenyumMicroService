@@ -27,6 +27,7 @@ BasketService.Data.Redis
 
 
 SelenyumMicroService.Bootstrapper
+SelenyumMicroService.Common
 SelenyumMicroService.MessageService
 SelenyumMicroService.Shared
 SelenyumMicroService.ServiceDiscovery.Consul
