@@ -64,5 +64,15 @@ namespace BasketService.Api.Controllers
 
             return StatusCode(result.StatusCode, result);
         }
+
+        [HttpDelete("{buyerId}")]
+        public async Task<IActionResult> DeleteBasketAsync(string buyerId)
+        {
+            _logger.LogDebug("Deleting basket with {buyerId}", buyerId);
+
+            var result = await _basketBusiness.DeleteBasketAsync(buyerId);
+
+            return StatusCode(result.StatusCode, result);
+        }
     }
 }

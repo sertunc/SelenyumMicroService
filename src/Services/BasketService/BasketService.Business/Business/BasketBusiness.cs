@@ -77,5 +77,22 @@ namespace BasketService.Business.Business
 
             return Task.FromResult(Response<bool>.Success(true));
         }
+
+        public async Task<Response<bool>> DeleteBasketAsync(string buyerId)
+        {
+            var basket = await _basketRepository.GetBasketAsync(buyerId);
+
+            if (basket == null)
+            {
+                return Response<bool>.Fail("Basket not found", (int)HttpStatusCode.NotFound);
+            }
+
+            var result = await _basketRepository.DeleteBasketAsync(buyerId);
+
+            if (!result)
+                return Response<bool>.Fail("Basket not deleted", (int)HttpStatusCode.InternalServerError);
+            else
+                return Response<bool>.Success(result);
+        }
     }
 }

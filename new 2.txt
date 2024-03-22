@@ -34,4 +34,5 @@ SelenyumMicroService.ServiceDiscovery.Consul
 SelenyumMicroService.Caching
 SelenyumMicroService.Caching.Redis
 
-Docker compose fileları yapalım
+-Docker compose fileları yapalım
+-elestic or graylog

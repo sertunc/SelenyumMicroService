@@ -12,5 +12,7 @@ namespace BasketService.Business.Abstractions.Interfaces
         Task<Response<bool>> AddItemToBasketAsync(BasketItemViewModel basketItemViewModel);
 
         Task<Response<bool>> CheckoutBasketAsync(BasketCheckoutViewModel basketCheckoutViewModel);
+
+        Task<Response<bool>> DeleteBasketAsync(string buyerId);
     }
 }
