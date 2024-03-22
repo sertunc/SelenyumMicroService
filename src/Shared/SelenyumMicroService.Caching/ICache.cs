@@ -4,6 +4,8 @@
     {
         Task<string> GetValueAsync(string key);
 
+        Task<T> GetValueAsync<T>(string key);
+
         Task<bool> SetValueAsync(string key, object value);
 
         Task<bool> SetValueAsync(string key, object value, object options);

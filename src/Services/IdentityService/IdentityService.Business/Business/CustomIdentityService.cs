@@ -9,22 +9,35 @@ namespace IdentityService.Business.Business
 {
     public class CustomIdentityService : IIdentityService
     {
+        private const string TokenSecret = "SelenyumMicroServiceSuperSecureKey";
+        private static readonly TimeSpan TokenLifetime = TimeSpan.FromDays(1);
+
         public Task<LoginResponseModel> LoginAsync(LoginRequestModel loginRequestModel)
         {
             // DB Process will be here. Check username and password
 
-            var claims = new Claim[]
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(TokenSecret);
+
+            var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, loginRequestModel.Username),
-                new Claim(ClaimTypes.Name, "Sertunc Selen"),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new(JwtRegisteredClaimNames.Sub, loginRequestModel.Username),
+                new(JwtRegisteredClaimNames.Email, loginRequestModel.Username),
+                new("userid", loginRequestModel.Username)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SelenyumMicroServiceSuperSecureKey"));
-            var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(10);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.Add(TokenLifetime),
+                Issuer = "SelenyumMicroService",
+                Audience = "SelenyumMicroService",
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
+            };
 
-            var token = new JwtSecurityToken(claims: claims, expires: expires, signingCredentials: signingCredentials, notBefore: DateTime.Now);
-            var encodedToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var encodedToken = tokenHandler.WriteToken(token);
 
             return Task.FromResult(new LoginResponseModel { Token = encodedToken, UserName = loginRequestModel.Username });
         }

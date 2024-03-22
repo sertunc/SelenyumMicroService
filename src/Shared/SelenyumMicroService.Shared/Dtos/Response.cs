@@ -2,10 +2,10 @@
 {
     public class Response<T>
     {
-        public T Data { get; set; }
-        public int StatusCode { get; set; }
-        public bool IsSuccessful { get; set; }
-        public List<string> Errors { get; set; }
+        public T Data { get; init; }
+        public int StatusCode { get; init; }
+        public bool IsSuccessful { get; init; }
+        public List<string> Errors { get; init; }
 
         public static Response<T> Success(T data)
         {

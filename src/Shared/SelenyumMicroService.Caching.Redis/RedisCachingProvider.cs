@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
+using System.Text;
 using System.Text.Json;
 
 namespace SelenyumMicroService.Caching.Redis
@@ -15,6 +16,13 @@ namespace SelenyumMicroService.Caching.Redis
         public async Task<string> GetValueAsync(string key)
         {
             return await _distributedCache.GetStringAsync(key);
+        }
+
+        public async Task<T> GetValueAsync<T>(string key)
+        {
+            var item = await _distributedCache.GetStringAsync(key);
+            if (item == null) return default(T);
+            return JsonSerializer.Deserialize<T>(item);
         }
 
         public async Task<bool> SetValueAsync(string key, object value)
