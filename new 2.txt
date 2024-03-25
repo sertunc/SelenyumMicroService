@@ -9,14 +9,10 @@ IdentityService.Business              -> Business, Exceptions, Extensions, Mappi
 IdentityService.Business.Abstractions -> Interfaces, Models
 
 PaymentService.Api
-PaymentService.Business
-PaymentService.Business.Abstractions
 PaymentService.Messages -> Commands, Events
-PaymentService.Messages.Producers -> Sends, Publishes
 PaymentService.Messages.Consumers
+PaymentService.Messages.Producers -> Sends, Publishes
 PaymentService.Messages.Producers.Abstractions
-PaymentService.Data.Abstractions
-PaymentService.Data.EFCore
 
 
 BasketService.Api

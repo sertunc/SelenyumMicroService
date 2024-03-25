@@ -66,17 +66,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService.Business", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.Bootstrapper", "src\Shared\SelenyumMicroService.Bootstrapper\SelenyumMicroService.Bootstrapper.csproj", "{278BDC5D-4038-4820-AD31-6AADEA145A15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Business", "src\Services\PaymentService\PaymentService.Business\PaymentService.Business.csproj", "{AF153F88-6990-4DD0-BD91-8A7CCB9F0DD9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Business.Abstractions", "src\Services\PaymentService\PaymentService.Business.Abstractions\PaymentService.Business.Abstractions.csproj", "{5CE39EB8-DC0A-47DD-9E71-BBD5B4A2A923}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Messages.Producers", "src\Services\PaymentService\PaymentService.Messages.Producers\PaymentService.Messages.Producers.csproj", "{00E0E1D0-30F2-4D12-9D50-B745F2AE6C43}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Messages.Consumers", "src\Services\PaymentService\PaymentService.Messages.Consumers\PaymentService.Messages.Consumers.csproj", "{BAC495E5-2101-4D96-B845-65A1628E0765}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Data.Abstractions", "src\Services\PaymentService\PaymentService.Data.Abstractions\PaymentService.Data.Abstractions.csproj", "{46E6D2F8-3E8B-4F05-8447-7343C3B1C806}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Data.EFCore", "src\Services\PaymentService\PaymentService.Data.EFCore\PaymentService.Data.EFCore.csproj", "{7B21AF1D-B179-465A-8197-0ABB25C1456B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentService.Messages", "src\Services\PaymentService\PaymentService.Messages\PaymentService.Messages.csproj", "{B5C349C4-0A52-4257-B3C4-D032A6E8472D}"
 EndProject
@@ -104,7 +96,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.Cachin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.Caching.Redis", "src\Shared\SelenyumMicroService.Caching.Redis\SelenyumMicroService.Caching.Redis.csproj", "{FF608D45-E3CF-4654-AFF8-46D4621E3272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelenyumMicroService.Common", "src\Shared\SelenyumMicroService.Common\SelenyumMicroService.Common.csproj", "{03BA4816-269A-4BE3-8302-08DF46EB49A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenyumMicroService.Common", "src\Shared\SelenyumMicroService.Common\SelenyumMicroService.Common.csproj", "{03BA4816-269A-4BE3-8302-08DF46EB49A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -172,14 +164,6 @@ Global
 		{278BDC5D-4038-4820-AD31-6AADEA145A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{278BDC5D-4038-4820-AD31-6AADEA145A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{278BDC5D-4038-4820-AD31-6AADEA145A15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF153F88-6990-4DD0-BD91-8A7CCB9F0DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF153F88-6990-4DD0-BD91-8A7CCB9F0DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF153F88-6990-4DD0-BD91-8A7CCB9F0DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF153F88-6990-4DD0-BD91-8A7CCB9F0DD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CE39EB8-DC0A-47DD-9E71-BBD5B4A2A923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CE39EB8-DC0A-47DD-9E71-BBD5B4A2A923}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CE39EB8-DC0A-47DD-9E71-BBD5B4A2A923}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CE39EB8-DC0A-47DD-9E71-BBD5B4A2A923}.Release|Any CPU.Build.0 = Release|Any CPU
 		{00E0E1D0-30F2-4D12-9D50-B745F2AE6C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00E0E1D0-30F2-4D12-9D50-B745F2AE6C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00E0E1D0-30F2-4D12-9D50-B745F2AE6C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -188,14 +172,6 @@ Global
 		{BAC495E5-2101-4D96-B845-65A1628E0765}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC495E5-2101-4D96-B845-65A1628E0765}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC495E5-2101-4D96-B845-65A1628E0765}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46E6D2F8-3E8B-4F05-8447-7343C3B1C806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46E6D2F8-3E8B-4F05-8447-7343C3B1C806}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46E6D2F8-3E8B-4F05-8447-7343C3B1C806}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46E6D2F8-3E8B-4F05-8447-7343C3B1C806}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B21AF1D-B179-465A-8197-0ABB25C1456B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B21AF1D-B179-465A-8197-0ABB25C1456B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B21AF1D-B179-465A-8197-0ABB25C1456B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B21AF1D-B179-465A-8197-0ABB25C1456B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5C349C4-0A52-4257-B3C4-D032A6E8472D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5C349C4-0A52-4257-B3C4-D032A6E8472D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5C349C4-0A52-4257-B3C4-D032A6E8472D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -285,12 +261,8 @@ Global
 		{E207AE44-4E8B-49AA-8694-CCB2B7D921BB} = {1043C09C-E4DE-4BEF-8A5A-B60FAADBAF2B}
 		{08C21F8D-E7D7-40D2-9255-2A57C1BA1BC7} = {1043C09C-E4DE-4BEF-8A5A-B60FAADBAF2B}
 		{278BDC5D-4038-4820-AD31-6AADEA145A15} = {A41620B9-FEFA-4F25-B06D-A6232C5FA6AF}
-		{AF153F88-6990-4DD0-BD91-8A7CCB9F0DD9} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
-		{5CE39EB8-DC0A-47DD-9E71-BBD5B4A2A923} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
 		{00E0E1D0-30F2-4D12-9D50-B745F2AE6C43} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
 		{BAC495E5-2101-4D96-B845-65A1628E0765} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
-		{46E6D2F8-3E8B-4F05-8447-7343C3B1C806} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
-		{7B21AF1D-B179-465A-8197-0ABB25C1456B} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
 		{B5C349C4-0A52-4257-B3C4-D032A6E8472D} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
 		{0DA78C86-F5DE-4BC3-8F51-CA170E91464A} = {080BBEAD-F828-4876-90B1-958A9B4CF053}
 		{258D17D4-DEE7-47F8-B80C-BD51E1D16291} = {4BFFADFB-F690-4D1D-AE39-9FDFB44A6DF8}
