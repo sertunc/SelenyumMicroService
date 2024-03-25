@@ -39,7 +39,7 @@ namespace IdentityService.Business.Business
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var encodedToken = tokenHandler.WriteToken(token);
 
-            return Task.FromResult(new LoginResponseModel { Token = encodedToken, UserName = loginRequestModel.Username });
+            return Task.FromResult(new LoginResponseModel(loginRequestModel.Username, encodedToken));
         }
     }
 }

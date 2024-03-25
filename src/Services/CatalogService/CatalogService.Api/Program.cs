@@ -16,14 +16,9 @@ builder.Services.AddBusiness();
 
 var consulAddress = builder.Configuration["Consul:Address"];
 ArgumentNullException.ThrowIfNull(consulAddress);
-var consulSettings = new ConsulSettings
-{
-    ConsulAddress = consulAddress,
-    ServiceId = "CatalogService",
-    ServiceName = "CatalogService",//Web.ApiGateway->/Configurations/ocelot.json -> ServiceName
-    ServiceHostUrl = urls,
-    Tags = [Environment.MachineName]
-};
+
+var consulSettings = new ConsulSettings(consulAddress, "CatalogService", "CatalogService", urls, [Environment.MachineName]);
+
 builder.Services.AddConsul(consulSettings);
 
 builder.Services.AddControllers();

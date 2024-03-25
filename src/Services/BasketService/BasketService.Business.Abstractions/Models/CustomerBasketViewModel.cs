@@ -1,14 +1,6 @@
-﻿namespace BasketService.Business.Abstractions.Models
-{
-    public class CustomerBasketViewModel
-    {
-        public string BuyerId { get; init; }
-        public List<BasketItemViewModel> Items { get; init; }
+﻿using System.Collections.Generic;
 
-        public CustomerBasketViewModel(string buyerId, List<BasketItemViewModel> items)
-        {
-            BuyerId = buyerId;
-            Items = items;
-        }
-    }
+namespace BasketService.Business.Abstractions.Models
+{
+    public record CustomerBasketViewModel(string BuyerId, List<BasketItemViewModel> Items);
 }

@@ -2,8 +2,8 @@
 {
     public record OrderPaymentFailed
     {
-        public int OrderId { get; }
-        public string Error { get; set; }
+        public int OrderId { get; init; }
+        public string Error { get; init; }
 
         public OrderPaymentFailed(int orderId, string error)
         {

@@ -2,10 +2,5 @@
 
 namespace BasketService.Data.Abstractions.Entities
 {
-    public class BasketCheckout
-    {
-        public Address ShippingAddress { get; init; }
-        public CardInfo CardInfo { get; init; }
-        public string BuyerId { get; init; }
-    }
+    public record BasketCheckout(Address ShippingAddress, CardInfo CardInfo, string BuyerId);
 }

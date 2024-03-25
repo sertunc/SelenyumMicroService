@@ -1,45 +1,19 @@
 ﻿namespace SelenyumMicroService.Shared.Dtos
 {
-    public class Response<T>
+    public record Response<T>(T Data, int StatusCode, bool IsSuccessful, List<string> Errors)
     {
-        public T Data { get; init; }
-        public int StatusCode { get; init; }
-        public bool IsSuccessful { get; init; }
-        public List<string> Errors { get; init; }
+        public static Response<T> Success(T data) => new(data, 200, true, null);
 
-        public static Response<T> Success(T data)
-        {
-            return new Response<T> { Data = data, StatusCode = 200, IsSuccessful = true };
-        }
+        public static Response<T> Success(T data, int statusCode) => new(data, statusCode, true, null);
 
-        public static Response<T> Success(T data, int statusCode)
-        {
-            return new Response<T> { Data = data, StatusCode = statusCode, IsSuccessful = true };
-        }
+        public static Response<T> Success(int statusCode) => new(default, statusCode, true, null);
 
-        public static Response<T> Success(int statusCode)
-        {
-            return new Response<T> { Data = default, StatusCode = statusCode, IsSuccessful = true };
-        }
+        public static Response<T> Fail(string error) => new(default, 500, false, new List<string> { error });
 
-        public static Response<T> Fail(string error)
-        {
-            return new Response<T> { Errors = new List<string>() { error }, StatusCode = 500, IsSuccessful = false };
-        }
+        public static Response<T> Fail(string error, int statusCode) => new(default, statusCode, false, new List<string> { error });
 
-        public static Response<T> Fail(string error, int statusCode)
-        {
-            return new Response<T> { Errors = new List<string>() { error }, StatusCode = statusCode, IsSuccessful = false };
-        }
+        public static Response<T> Fail(List<string> errors) => new(default, 500, false, errors);
 
-        public static Response<T> Fail(List<string> errors)
-        {
-            return new Response<T> { Errors = errors, StatusCode = 500, IsSuccessful = false };
-        }
-
-        public static Response<T> Fail(List<string> errors, int statusCode)
-        {
-            return new Response<T> { Errors = errors, StatusCode = statusCode, IsSuccessful = false };
-        }
+        public static Response<T> Fail(List<string> errors, int statusCode) => new(default, statusCode, false, errors);
     }
 }

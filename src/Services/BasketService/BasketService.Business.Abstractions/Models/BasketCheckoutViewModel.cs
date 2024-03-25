@@ -1,9 +1,6 @@
-﻿namespace BasketService.Business.Abstractions.Models
+﻿using BasketService.Business.Abstractions.Models;
+
+namespace BasketService.Business.Abstractions.Models
 {
-    public class BasketCheckoutViewModel
-    {
-        public AddressViewModel ShippingAddress { get; init; }
-        public CardInfoViewModel CardInfo { get; init; }
-        public string BuyerId { get; init; }
-    }
+    public record BasketCheckoutViewModel(AddressViewModel ShippingAddress, CardInfoViewModel CardInfo, string BuyerId);
 }

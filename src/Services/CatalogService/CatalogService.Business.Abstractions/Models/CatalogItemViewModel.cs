@@ -1,9 +1,9 @@
 ﻿namespace CatalogService.Business.Abstractions.Models
 {
-    public class CatalogItemViewModel
+    public record CatalogItemViewModel
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        public string Id { get; init; }
+        public string Name { get; init; }
+        public decimal Price { get; init; }
     }
 }

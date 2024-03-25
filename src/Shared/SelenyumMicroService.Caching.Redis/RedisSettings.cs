@@ -1,9 +1,13 @@
 ﻿namespace SelenyumMicroService.Caching.Redis
 {
-    public class RedisSettings
+    public record RedisSettings
     {
-        public string[] Addresses { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string[] Addresses { get; init; }
+        public string Username { get; init; }
+        public string Password { get; init; }
+
+        public RedisSettings()
+        {
+        }
     }
 }

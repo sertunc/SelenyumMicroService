@@ -1,17 +1,15 @@
 ﻿namespace SelenyumMicroService.MessageService
 {
-    public class MessageServiceConnectionSettings : IMessageServiceConnectionSettings
+    public record MessageServiceConnectionSettings
     {
-        public string Protocol { get; set; }
+        public string Protocol { get; init; }
+        public string Host { get; init; }
+        public string MessageUser { get; init; }
+        public string MessagePass { get; init; }
+        public string VirtualHost { get; init; }
 
-        public string Host { get; set; }
+        public MessageServiceConnectionSettings() { }
 
         public string MessageService => $"{Protocol}://{Host}";
-
-        public string MessageUser { get; set; }
-
-        public string MessagePass { get; set; }
-
-        public string VirtualHost { get; set; }
     }
 }

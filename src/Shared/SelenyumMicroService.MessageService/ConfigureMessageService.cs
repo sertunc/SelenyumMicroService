@@ -6,7 +6,7 @@ namespace SelenyumMicroService.MessageService
 {
     public static class ConfigureMessageService
     {
-        public static void AddMessageService(this IServiceCollection services, IMessageServiceConnectionSettings settings)
+        public static void AddMessageService(this IServiceCollection services, MessageServiceConnectionSettings settings)
         {
             services.AddMassTransit(x =>
             {

@@ -29,14 +29,9 @@ builder.Services.AddSwaggerGen();
 
 var consulAddress = builder.Configuration["Consul:Address"];
 ArgumentNullException.ThrowIfNull(consulAddress);
-var consulSettings = new ConsulSettings
-{
-    ConsulAddress = consulAddress,
-    ServiceId = "BasketService",
-    ServiceName = "BasketService",//Web.ApiGateway->/Configurations/ocelot.json -> ServiceName
-    ServiceHostUrl = urls,
-    Tags = [Environment.MachineName]
-};
+
+var consulSettings = new ConsulSettings(consulAddress, "BasketService", "BasketService", urls, [Environment.MachineName]);
+
 builder.Services.AddConsul(consulSettings);
 
 var app = builder.Build();
