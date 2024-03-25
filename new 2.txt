@@ -19,7 +19,10 @@ BasketService.Api
 BasketService.Business
 BasketService.Business.Abstractions
 BasketService.Data.Abstractions
+BasketService.Data.Models
 BasketService.Data.Redis
+BasketService.Messages -> Commands, Events
+BasketService.Messages.Consumers
 
 
 SelenyumMicroService.Bootstrapper

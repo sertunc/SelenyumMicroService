@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var messageServiceConnectionSettings = new MessageServiceConnectionSettings();
 builder.Configuration.GetSection("RabbitMQ").Bind(messageServiceConnectionSettings);
+ArgumentNullException.ThrowIfNull(messageServiceConnectionSettings);
+
 builder.Services.AddSingleton(messageServiceConnectionSettings);
 builder.Services.AddMessageService(messageServiceConnectionSettings);
 builder.Services.AddProducers();

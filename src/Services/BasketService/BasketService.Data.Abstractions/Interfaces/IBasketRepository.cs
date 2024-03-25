@@ -1,4 +1,4 @@
-﻿using BasketService.Data.Abstractions.Entities;
+﻿using BasketService.Data.Models;
 
 namespace BasketService.Data.Abstractions.Interfaces
 {

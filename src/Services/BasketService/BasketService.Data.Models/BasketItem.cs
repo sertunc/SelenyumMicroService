@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BasketService.Data.Abstractions.Entities
+namespace BasketService.Data.Models
 {
     public record BasketItem(string Id, string ProductId, string ProductName, decimal UnitPrice, decimal OldUnitPrice, int Quantity, string PictureUrl)
     {

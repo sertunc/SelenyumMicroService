@@ -1,4 +1,4 @@
-﻿namespace BasketService.Data.Abstractions.ValueObjects
+﻿namespace BasketService.Data.Models
 {
     public record Address(string City, string Street, string State, string Country, string ZipCode);
 }

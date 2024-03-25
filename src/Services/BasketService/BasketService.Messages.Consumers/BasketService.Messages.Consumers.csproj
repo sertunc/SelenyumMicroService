@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BasketService.Data.Models\BasketService.Data.Models.csproj" />
-  </ItemGroup>
-
 </Project>

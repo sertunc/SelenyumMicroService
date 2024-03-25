@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BasketService.Business.Abstractions.Models;
-using BasketService.Data.Abstractions.Entities;
-using BasketService.Data.Abstractions.ValueObjects;
+using BasketService.Data.Models;
 
 namespace BasketService.Business.Mapping
 {

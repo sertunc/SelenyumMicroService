@@ -1,5 +1,5 @@
-﻿using BasketService.Data.Abstractions.Entities;
-using BasketService.Data.Abstractions.Interfaces;
+﻿using BasketService.Data.Abstractions.Interfaces;
+using BasketService.Data.Models;
 using SelenyumMicroService.Caching;
 
 namespace BasketService.Data.Redis.Repositories

@@ -1,8 +1,10 @@
 using BasketService.Business.Extensions;
 using BasketService.Business.Mapping;
 using BasketService.Data.Redis.Extensions;
+using BasketService.Messages.Producers.MassTransit;
 using SelenyumMicroService.Bootstrapper;
 using SelenyumMicroService.Caching.Redis;
+using SelenyumMicroService.MessageService;
 using SelenyumMicroService.ServiceDiscovery.Consul;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,13 +15,19 @@ RedisSettings redisSettings = new();
 builder.Configuration.GetSection("Redis").Bind(redisSettings);
 ArgumentNullException.ThrowIfNull(redisSettings);
 
+var messageServiceConnectionSettings = new MessageServiceConnectionSettings();
+builder.Configuration.GetSection("RabbitMQ").Bind(messageServiceConnectionSettings);
+ArgumentNullException.ThrowIfNull(messageServiceConnectionSettings);
+
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDefaultAuthentication(builder.Configuration);
 builder.Services.AddRedisCacheService(redisSettings);
+builder.Services.AddMessageService(messageServiceConnectionSettings);
 builder.Services.AddAutoMapper<MappingProfile>();
 builder.Services.AddRepositories();
 builder.Services.AddBusiness();
+builder.Services.AddProducers();
 
 builder.Services.AddControllers();
 

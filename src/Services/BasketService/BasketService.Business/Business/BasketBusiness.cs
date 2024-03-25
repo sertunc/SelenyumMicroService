@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using BasketService.Business.Abstractions.Interfaces;
 using BasketService.Business.Abstractions.Models;
-using BasketService.Data.Abstractions.Entities;
 using BasketService.Data.Abstractions.Interfaces;
+using BasketService.Data.Models;
+using BasketService.Messages.Events;
+using BasketService.Messages.Producers.Abstractions;
 using SelenyumMicroService.Shared.Dtos;
 using System.Net;
 
@@ -12,12 +14,18 @@ namespace BasketService.Business.Business
     {
         private readonly IMapper _mapper;
         private readonly IBasketRepository _basketRepository;
+        private readonly IBasketPublishes _basketPublisher;
         private readonly IIdentityService _identityService;
 
-        public BasketBusiness(IMapper mapper, IBasketRepository basketRepository, IIdentityService identityService)
+        public BasketBusiness(
+            IMapper mapper,
+            IBasketRepository basketRepository,
+            IBasketPublishes basketPublisher,
+            IIdentityService identityService)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _basketRepository = basketRepository ?? throw new ArgumentNullException(nameof(basketRepository));
+            _basketPublisher = basketPublisher ?? throw new ArgumentNullException(nameof(basketPublisher));
             _identityService = identityService ?? throw new ArgumentNullException(nameof(identityService));
         }
 
@@ -60,22 +68,26 @@ namespace BasketService.Business.Business
             return Response<bool>.Success(true);
         }
 
-        public Task<Response<bool>> CheckoutBasketAsync(BasketCheckoutViewModel basketCheckoutViewModel)
+        public async Task<Response<bool>> CheckoutBasketAsync(BasketCheckoutViewModel basketCheckoutViewModel)
         {
-            var userId = basketCheckoutViewModel.BuyerId;
+            var customerBasket = await _basketRepository.GetBasketAsync(basketCheckoutViewModel.BuyerId);
 
-            var basket = _mapper.Map<BasketCheckout>(basketCheckoutViewModel);
-
-            if (basket == null)
+            if (customerBasket == null)
             {
-                return Task.FromResult(Response<bool>.Fail("Basket is null"));
+                return Response<bool>.Fail("Basket is null");
             }
 
-            var userName = _identityService.GetUserName();
+            var buyerId = customerBasket.BuyerId; //The parameters retrieved from the database are trusted over those received from the user.
+            var shippingAddress = _mapper.Map<Address>(basketCheckoutViewModel.ShippingAddress);
+            var cardInfo = _mapper.Map<CardInfo>(basketCheckoutViewModel.CardInfo);
 
-            //TODO: rise event
+            OrderCreated orderCreated = new(buyerId,
+                new CustomerBasket(buyerId, customerBasket.Items),
+                new BasketCheckout(shippingAddress, cardInfo, buyerId));
 
-            return Task.FromResult(Response<bool>.Success(true));
+            await _basketPublisher.PublishOrderCreatedAsync(orderCreated);
+
+            return Response<bool>.Success(true);
         }
 
         public async Task<Response<bool>> DeleteBasketAsync(string buyerId)
