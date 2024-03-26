@@ -2,7 +2,7 @@
 
 namespace OrderService.Domain.SeedWork;
 
-public abstract class Entity
+public abstract class BaseEntity
 {
     private int? _requestedHashCode;
 
@@ -35,7 +35,7 @@ public abstract class Entity
 
     public override bool Equals(object obj)
     {
-        if (obj == null || !(obj is Entity))
+        if (obj == null || !(obj is BaseEntity))
             return false;
 
         if (Object.ReferenceEquals(this, obj))
@@ -44,7 +44,7 @@ public abstract class Entity
         if (this.GetType() != obj.GetType())
             return false;
 
-        Entity item = (Entity)obj;
+        BaseEntity item = (BaseEntity)obj;
 
         if (item.IsTransient() || this.IsTransient())
             return false;
@@ -65,7 +65,7 @@ public abstract class Entity
             return base.GetHashCode();
     }
 
-    public static bool operator ==(Entity left, Entity right)
+    public static bool operator ==(BaseEntity left, BaseEntity right)
     {
         if (Object.Equals(left, null))
             return (Object.Equals(right, null)) ? true : false;
@@ -73,7 +73,7 @@ public abstract class Entity
             return left.Equals(right);
     }
 
-    public static bool operator !=(Entity left, Entity right)
+    public static bool operator !=(BaseEntity left, BaseEntity right)
     {
         return !(left == right);
     }

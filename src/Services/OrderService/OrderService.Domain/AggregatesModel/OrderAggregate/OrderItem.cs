@@ -3,7 +3,7 @@ using OrderService.Domain.SeedWork;
 
 namespace OrderService.Domain.AggregatesModel.OrderAggregate;
 
-public class OrderItem : Entity
+public class OrderItem : BaseEntity
 {
     // DDD Patterns comment
     // Using private fields, allowed since EF Core 1.1, is a much better encapsulation

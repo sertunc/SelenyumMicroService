@@ -4,7 +4,7 @@ using OrderService.Domain.SeedWork;
 
 namespace OrderService.Domain.AggregatesModel.OrderAggregate;
 
-public class Order : Entity, IAggregateRoot
+public class Order : BaseEntity, IAggregateRoot
 {
     public DateTime OrderDate { get; private set; }
     public int Quantity { get; private set; }

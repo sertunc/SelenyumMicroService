@@ -3,7 +3,7 @@ using OrderService.Domain.SeedWork;
 
 namespace OrderService.Domain.AggregatesModel.BuyerAggregate;
 
-public class Buyer : Entity, IAggregateRoot
+public class Buyer : BaseEntity, IAggregateRoot
 {
     public string IdentityGuid { get; private set; }
 

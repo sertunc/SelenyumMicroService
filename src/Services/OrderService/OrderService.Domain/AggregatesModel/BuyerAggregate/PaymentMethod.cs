@@ -3,7 +3,7 @@ using OrderService.Domain.SeedWork;
 
 namespace OrderService.Domain.AggregatesModel.BuyerAggregate;
 
-public class PaymentMethod : Entity
+public class PaymentMethod : BaseEntity
 {
     private string _alias;
     private string _cardNumber;
