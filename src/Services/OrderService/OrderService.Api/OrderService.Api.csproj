@@ -14,4 +14,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Bootstrapper\SelenyumMicroService.Bootstrapper.csproj" />    
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.MessageService\SelenyumMicroService.MessageService.csproj" />
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj" />
+  </ItemGroup>
+
 </Project>

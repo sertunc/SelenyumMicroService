@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SelenyumMicroService.RequestIdentifierProvider\SelenyumMicroService.RequestIdentifierProvider.csproj" />
+    <ProjectReference Include="..\SelenyumMicroService.TokenProvider\SelenyumMicroService.TokenProvider.csproj" />
+  </ItemGroup>
+
 </Project>

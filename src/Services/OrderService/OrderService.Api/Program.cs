@@ -1,11 +1,30 @@
+using SelenyumMicroService.Bootstrapper;
+using SelenyumMicroService.MessageService;
+using SelenyumMicroService.ServiceDiscovery.Consul;
+
 var builder = WebApplication.CreateBuilder(args);
+var urls = builder.Configuration.GetValue<string>("Urls") ?? Environment.GetEnvironmentVariable("ASPNETCORE_URLS");
+ArgumentNullException.ThrowIfNull(urls);
+
+var messageServiceConnectionSettings = new MessageServiceConnectionSettings();
+builder.Configuration.GetSection("RabbitMQ").Bind(messageServiceConnectionSettings);
+ArgumentNullException.ThrowIfNull(messageServiceConnectionSettings);
 
 // Add services to the container.
+builder.Services.AddDefaultAuthentication(builder.Configuration);
+builder.Services.AddMessageService(messageServiceConnectionSettings);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var consulAddress = builder.Configuration["Consul:Address"];
+ArgumentNullException.ThrowIfNull(consulAddress);
+
+var consulSettings = new ConsulSettings(consulAddress, "OrderService", "OrderService", urls, [Environment.MachineName]);
+
+builder.Services.AddConsul(consulSettings);
 
 var app = builder.Build();
 
@@ -17,9 +36,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
-app.Run();
+app.UseConsul(app.Lifetime, consulSettings);
+
+app.Run(urls);

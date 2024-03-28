@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Shared\SelenyumMicroService.Shared.csproj" />
-    <ProjectReference Include="..\PaymentService.Common\PaymentService.Common.csproj" />
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Api.Client\SelenyumMicroService.Api.Client.csproj" />
+    <ProjectReference Include="..\PaymentService.Client.Abstractions\PaymentService.Client.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

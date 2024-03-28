@@ -9,6 +9,11 @@ IdentityService.Business              -> Business, Exceptions, Extensions, Mappi
 IdentityService.Business.Abstractions -> Interfaces, Models
 
 PaymentService.Api
+PaymentService.Business
+PaymentService.Business.Abstractions
+PaymentService.Client
+PaymentService.Client.Abstractions
+PaymentService.Common
 PaymentService.Messages -> Commands, Events
 PaymentService.Messages.Consumers
 PaymentService.Messages.Producers -> Sends, Publishes
@@ -36,5 +41,6 @@ SelenyumMicroService.ServiceDiscovery.Consul
 SelenyumMicroService.Caching
 SelenyumMicroService.Caching.Redis
 
+-business abstraction model klasörünü common a taşı ve adını viewmodels koy
 -Docker compose fileları yapalım
 -elestic or graylog

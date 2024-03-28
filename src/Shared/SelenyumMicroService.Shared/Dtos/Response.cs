@@ -10,6 +10,8 @@
 
         public static Response<T> Fail(string error) => new(default, 500, false, new List<string> { error });
 
+        public static Response<T> Fail(string error, T data) => new(data, 500, false, new List<string> { error });
+
         public static Response<T> Fail(string error, int statusCode) => new(default, statusCode, false, new List<string> { error });
 
         public static Response<T> Fail(List<string> errors) => new(default, 500, false, errors);
