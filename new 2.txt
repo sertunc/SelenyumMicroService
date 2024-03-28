@@ -25,6 +25,9 @@ BasketService.Messages -> Commands, Events
 BasketService.Messages.Consumers
 
 
+SelenyumMicroService.Api.Client
+SelenyumMicroService.RequestIdentifierProvider
+SelenyumMicroService.TokenProvider
 SelenyumMicroService.Bootstrapper
 SelenyumMicroService.Common
 SelenyumMicroService.MessageService
