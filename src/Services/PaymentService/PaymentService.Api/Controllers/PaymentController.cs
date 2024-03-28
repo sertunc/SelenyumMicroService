@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PaymentService.Business.Abstractions;
-using PaymentService.Data.Models;
+using PaymentService.Common.ViewModels;
 
 namespace PaymentService.Api.Controllers
 {

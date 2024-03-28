@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using PaymentService.Client.Abstractions;
-using PaymentService.Data.Models;
+using PaymentService.Common.ViewModels;
 using SelenyumMicroService.Api.Client.BaseClients;
 using SelenyumMicroService.RequestIdentifierProvider;
 using SelenyumMicroService.Shared.Dtos;

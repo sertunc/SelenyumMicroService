@@ -1,4 +1,4 @@
-﻿using PaymentService.Data.Models;
+﻿using PaymentService.Common.ViewModels;
 using SelenyumMicroService.Shared.Dtos;
 
 namespace PaymentService.Client.Abstractions
