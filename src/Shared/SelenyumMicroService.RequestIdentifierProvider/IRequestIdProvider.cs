@@ -1,7 +1,7 @@
 ﻿namespace SelenyumMicroService.RequestIdentifierProvider
 {
-    public interface IRequestIdGetter
+    public interface IRequestIdProvider
     {
-        string GetRequestId();
+        string RequestId { get; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -10,12 +9,10 @@ namespace SelenyumMicroService.Api.Client.BaseClients
 {
     public abstract class JsonClient
     {
-        private readonly ILogger logger;
         protected readonly HttpClient httpClient;
 
-        public JsonClient(ILogger<JsonClient> logger, HttpClient httpClient)
+        public JsonClient(HttpClient httpClient)
         {
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -36,7 +33,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             }
             catch (Exception e)
             {
-                LogException(e);
                 throw;
             }
         }
@@ -56,7 +52,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             }
             catch (Exception e)
             {
-                LogException(e);
                 throw;
             }
         }
@@ -71,7 +66,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             }
             catch (Exception e)
             {
-                LogException(e);
                 throw;
             }
         }
@@ -89,7 +83,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             }
             catch (Exception e)
             {
-                LogException(e);
                 throw;
             }
         }
@@ -103,7 +96,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             }
             catch (Exception e)
             {
-                LogException(e);
                 throw;
             }
         }
@@ -119,7 +111,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             }
             catch (Exception e)
             {
-                LogException(e);
                 throw;
             }
         }
@@ -162,15 +153,6 @@ namespace SelenyumMicroService.Api.Client.BaseClients
         {
             if (httpResponseMessage?.IsSuccessStatusCode == true)
                 return;
-
-            logger.LogError("{ClassName} web çağrısı başarısız oldu: {ErrorType} {ReasonPhrase} {RequestMethod} {RequestUri}",
-                GetType().Name, httpResponseMessage?.StatusCode.ToString(), httpResponseMessage?.ReasonPhrase,
-                httpResponseMessage?.RequestMessage?.Method, httpResponseMessage?.RequestMessage?.RequestUri?.ToString());
-        }
-
-        private void LogException(Exception e)
-        {
-            logger.LogError(e, "{ClassName} web çağrısı sırasında Exception oluştu", GetType().Name);
         }
     }
 }

@@ -12,8 +12,8 @@ namespace PaymentService.Client
     {
         private readonly ILogger<PaymentServiceClient> logger;
 
-        public PaymentServiceClient(ILogger<PaymentServiceClient> logger, HttpClient httpClient, IRequestIdGetter requestIdGetter, ITokenGetter tokenGetter)
-            : base(logger, httpClient, requestIdGetter, tokenGetter)
+        public PaymentServiceClient(ILogger<PaymentServiceClient> logger, HttpClient httpClient, IRequestIdProvider requestIdProvider, ITokenProvider tokenProvider)
+            : base(httpClient, requestIdProvider, tokenProvider)
         {
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }

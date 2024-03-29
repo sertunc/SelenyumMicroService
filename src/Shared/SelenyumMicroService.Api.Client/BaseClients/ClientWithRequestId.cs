@@ -1,21 +1,20 @@
-﻿using Microsoft.Extensions.Logging;
-using SelenyumMicroService.RequestIdentifierProvider;
+﻿using SelenyumMicroService.RequestIdentifierProvider;
 
 namespace SelenyumMicroService.Api.Client.BaseClients
 {
     public abstract class ClientWithRequestId : JsonClient
     {
-        protected readonly IRequestIdGetter requestIdGetter;
+        protected readonly IRequestIdProvider requestIdProvider;
 
-        protected ClientWithRequestId(ILogger<JsonClient> logger, HttpClient httpClient, IRequestIdGetter requestIdGetter) : base(logger, httpClient)
+        protected ClientWithRequestId(HttpClient httpClient, IRequestIdProvider requestIdProvider) : base(httpClient)
         {
-            this.requestIdGetter = requestIdGetter ?? throw new ArgumentNullException(nameof(requestIdGetter));
+            this.requestIdProvider = requestIdProvider ?? throw new ArgumentNullException(nameof(requestIdProvider));
         }
 
         private void SetHeaderRequestId()
         {
             httpClient.DefaultRequestHeaders.Remove("RequestId");
-            httpClient.DefaultRequestHeaders.Add("RequestId", requestIdGetter.GetRequestId());
+            httpClient.DefaultRequestHeaders.Add("RequestId", requestIdProvider.RequestId);
         }
 
         protected override async Task<TReturn> PostForm<TReturn>(string method, params (string Key, string Value)[] formData)

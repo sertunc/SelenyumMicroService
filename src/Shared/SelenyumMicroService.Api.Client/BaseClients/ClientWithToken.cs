@@ -1,21 +1,18 @@
-﻿using Microsoft.Extensions.Logging;
-using SelenyumMicroService.RequestIdentifierProvider;
+﻿using SelenyumMicroService.RequestIdentifierProvider;
 using SelenyumMicroService.TokenProvider;
 
 namespace SelenyumMicroService.Api.Client.BaseClients
 {
     public abstract class ClientWithToken : ClientWithRequestId
     {
-        protected readonly ITokenGetter tokenGetter;
+        protected readonly ITokenProvider tokenProvider;
 
-        protected ClientWithToken(ILogger<JsonClient> logger, HttpClient httpClient, IRequestIdGetter requestIdGetter, ITokenGetter tokenGetter) : base(logger, httpClient, requestIdGetter)
+        protected ClientWithToken(HttpClient httpClient, IRequestIdProvider requestIdProvider, ITokenProvider tokenProvider) : base(httpClient, requestIdProvider)
         {
-            this.tokenGetter = tokenGetter ?? throw new ArgumentNullException(nameof(tokenGetter));
-
-            var token = tokenGetter.GetAccessToken();
+            this.tokenProvider = tokenProvider ?? throw new ArgumentNullException(nameof(tokenProvider));
 
             httpClient.DefaultRequestHeaders.Remove("Authorization");
-            httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {tokenProvider.AccessToken}");
         }
     }
 }
