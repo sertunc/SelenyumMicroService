@@ -1,5 +1,5 @@
-﻿using BasketService.Business.Abstractions.Interfaces;
-using BasketService.Business.Abstractions.Models;
+﻿using BasketService.Business.Abstractions;
+using BasketService.Common.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

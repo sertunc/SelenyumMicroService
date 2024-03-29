@@ -1,4 +1,4 @@
-﻿namespace BasketService.Business.Abstractions.Interfaces
+﻿namespace BasketService.Business.Abstractions
 {
     public interface IIdentityService
     {

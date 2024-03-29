@@ -1,4 +1,4 @@
-﻿using BasketService.Business.Abstractions.Interfaces;
+﻿using BasketService.Business.Abstractions;
 using BasketService.Business.Business;
 using Microsoft.Extensions.DependencyInjection;
 

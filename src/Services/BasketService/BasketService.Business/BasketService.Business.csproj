@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\PaymentService\PaymentService.Client.Abstractions\PaymentService.Client.Abstractions.csproj" />
     <ProjectReference Include="..\BasketService.Business.Abstractions\BasketService.Business.Abstractions.csproj" />
     <ProjectReference Include="..\BasketService.Data.Abstractions\BasketService.Data.Abstractions.csproj" />
     <ProjectReference Include="..\BasketService.Data.Models\BasketService.Data.Models.csproj" />

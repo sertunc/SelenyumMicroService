@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
-using BasketService.Business.Abstractions.Interfaces;
-using BasketService.Business.Abstractions.Models;
+using BasketService.Business.Abstractions;
+using BasketService.Common.ViewModels;
 using BasketService.Data.Abstractions.Interfaces;
 using BasketService.Data.Models;
 using BasketService.Messages.Events;
 using BasketService.Messages.Producers.Abstractions;
+using PaymentService.Client.Abstractions;
+using PaymentService.Common.ViewModels;
 using SelenyumMicroService.Shared.Dtos;
 using System.Net;
 
@@ -16,17 +18,20 @@ namespace BasketService.Business.Business
         private readonly IBasketRepository _basketRepository;
         private readonly IBasketPublishes _basketPublisher;
         private readonly IIdentityService _identityService;
+        private readonly IPaymentServiceClient _paymentServiceClient;
 
         public BasketBusiness(
             IMapper mapper,
             IBasketRepository basketRepository,
             IBasketPublishes basketPublisher,
-            IIdentityService identityService)
+            IIdentityService identityService,
+            IPaymentServiceClient paymentServiceClient)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _basketRepository = basketRepository ?? throw new ArgumentNullException(nameof(basketRepository));
             _basketPublisher = basketPublisher ?? throw new ArgumentNullException(nameof(basketPublisher));
             _identityService = identityService ?? throw new ArgumentNullException(nameof(identityService));
+            _paymentServiceClient = paymentServiceClient ?? throw new ArgumentNullException(nameof(paymentServiceClient));
         }
 
         public async Task<Response<CustomerBasketViewModel>> GetBasketByIdAsync(string buyerId)
@@ -81,13 +86,26 @@ namespace BasketService.Business.Business
             var shippingAddress = _mapper.Map<Address>(basketCheckoutViewModel.ShippingAddress);
             var cardInfo = _mapper.Map<CardInfo>(basketCheckoutViewModel.CardInfo);
 
-            OrderCreated orderCreated = new(buyerId,
-                new CustomerBasket(buyerId, customerBasket.Items),
-                new BasketCheckout(shippingAddress, cardInfo, buyerId));
+            var paymentCardInfo = new PaymentService.Common.ViewModels.CardInfoViewModel(cardInfo.CardNumber, cardInfo.CardHolderName, cardInfo.CardExpiration, cardInfo.CardSecurityCode, cardInfo.CardType);
+            var paymentViewModel = new PaymentViewModel(paymentCardInfo, buyerId, customerBasket.Items.Sum(x => x.UnitPrice * x.Quantity));
 
-            await _basketPublisher.PublishOrderCreatedAsync(orderCreated);
+            var receivePaymentResult = await _paymentServiceClient.ReceivePaymentAsync(paymentViewModel);
 
-            return Response<bool>.Success(true);
+            if (receivePaymentResult.IsSuccessful)
+            {
+                //TODO: dont take items price from frontend. Take it from database on the gateway
+                OrderCreated orderCreated = new(buyerId,
+                                            new CustomerBasket(buyerId, customerBasket.Items),
+                                            new BasketCheckout(shippingAddress, cardInfo, buyerId));
+
+                await _basketPublisher.PublishOrderCreatedAsync(orderCreated);
+
+                return Response<bool>.Success(true);
+            }
+            else
+            {
+                return Response<bool>.Fail(receivePaymentResult.Errors[0]);
+            }
         }
 
         public async Task<Response<bool>> DeleteBasketAsync(string buyerId)

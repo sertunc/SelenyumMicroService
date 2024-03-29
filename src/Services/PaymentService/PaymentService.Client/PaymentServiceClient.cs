@@ -4,29 +4,26 @@ using PaymentService.Common.ViewModels;
 using SelenyumMicroService.Api.Client.BaseClients;
 using SelenyumMicroService.RequestIdentifierProvider;
 using SelenyumMicroService.Shared.Dtos;
-using SelenyumMicroService.TokenProvider;
 
 namespace PaymentService.Client
 {
-    public class PaymentServiceClient : ClientWithToken, IPaymentServiceClient
+    public class PaymentServiceClient : ClientWithRequestId, IPaymentServiceClient
     {
         private readonly ILogger<PaymentServiceClient> logger;
 
-        public PaymentServiceClient(ILogger<PaymentServiceClient> logger, HttpClient httpClient, IRequestIdProvider requestIdProvider, ITokenProvider tokenProvider)
-            : base(httpClient, requestIdProvider, tokenProvider)
+        public PaymentServiceClient(ILogger<PaymentServiceClient> logger, HttpClient httpClient, IRequestIdProvider requestIdProvider)
+            : base(httpClient, requestIdProvider)
         {
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Response<PaymentResultViewModel>> ReceivePaymentAsync(PaymentViewModel payViewModel)
         {
-            //logger.LogDebug("PaymentServiceClient Pay metod giriş yaptı.");
+            logger.LogDebug("PaymentServiceClient Pay method called with BuyerId:{BuyerId}", payViewModel.BuyerId);
 
-            //var result = await base.Post<Response<bool>, PaymentViewModel>("api/ReceivePayment", payViewModel);
+            var result = await base.Post<Response<PaymentResultViewModel>, PaymentViewModel>("payment", payViewModel);
 
-            //return result;
-
-            throw new NotImplementedException();
+            return result;
         }
     }
 }

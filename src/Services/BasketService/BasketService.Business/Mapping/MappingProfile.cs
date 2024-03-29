@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BasketService.Business.Abstractions.Models;
+using BasketService.Common.ViewModels;
 using BasketService.Data.Models;
 
 namespace BasketService.Business.Mapping

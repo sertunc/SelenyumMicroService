@@ -31,7 +31,7 @@ namespace SelenyumMicroService.Api.Client.BaseClients
                 var response = await ReadResponseStream(httpResponseMessage);
                 return Deserialize<TReturn>(response);
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -50,7 +50,7 @@ namespace SelenyumMicroService.Api.Client.BaseClients
                 ValidateResponse(result);
                 await ReadResponseStream(result);
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -64,7 +64,7 @@ namespace SelenyumMicroService.Api.Client.BaseClients
                 var result = await httpClient.PostAsync(method, content);
                 ValidateResponse(result);
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -81,7 +81,7 @@ namespace SelenyumMicroService.Api.Client.BaseClients
 
                 return Deserialize<TReturn>(result.Result);
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -94,7 +94,7 @@ namespace SelenyumMicroService.Api.Client.BaseClients
                 var result = await httpClient.GetAsync(method);
                 ValidateResponse(result);
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -109,7 +109,7 @@ namespace SelenyumMicroService.Api.Client.BaseClients
                 var result = ReadResponseStream(response);
                 return Deserialize<TReturn>(result.Result);
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }

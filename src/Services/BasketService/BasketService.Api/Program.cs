@@ -1,3 +1,4 @@
+using BasketService.Api.Extensions;
 using BasketService.Business.Extensions;
 using BasketService.Business.Mapping;
 using BasketService.Data.Redis.Extensions;
@@ -28,6 +29,7 @@ builder.Services.AddAutoMapper<MappingProfile>();
 builder.Services.AddRepositories();
 builder.Services.AddBusiness();
 builder.Services.AddProducers();
+builder.Services.AddHttpClients(builder.Configuration);
 
 builder.Services.AddControllers();
 

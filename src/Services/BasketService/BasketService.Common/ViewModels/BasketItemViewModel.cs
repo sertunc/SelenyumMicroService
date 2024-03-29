@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BasketService.Business.Abstractions.Models
+namespace BasketService.Common.ViewModels
 {
-    public record BasketItemViewModel(string Id, string ProductId, string ProductName, decimal UnitPrice, decimal OldUnitPrice, int Quantity, string PictureUrl)
+    public record BasketItemViewModel(string Id, string ProductId, string ProductName, decimal UnitPrice, int Quantity, string PictureUrl)
     {
         public IEnumerable<ValidationResult> Validate()
         {

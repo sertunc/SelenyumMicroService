@@ -1,7 +1,7 @@
-﻿using BasketService.Business.Abstractions.Models;
+﻿using BasketService.Common.ViewModels;
 using SelenyumMicroService.Shared.Dtos;
 
-namespace BasketService.Business.Abstractions.Interfaces
+namespace BasketService.Business.Abstractions
 {
     public interface IBasketBusiness
     {

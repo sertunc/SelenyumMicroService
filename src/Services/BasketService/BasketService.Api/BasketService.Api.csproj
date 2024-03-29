@@ -15,6 +15,8 @@
     <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Caching.Redis\SelenyumMicroService.Caching.Redis.csproj" />
     <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.MessageService\SelenyumMicroService.MessageService.csproj" />
     <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj" />
+    <ProjectReference Include="..\..\PaymentService\PaymentService.Client.Abstractions\PaymentService.Client.Abstractions.csproj" />
+    <ProjectReference Include="..\..\PaymentService\PaymentService.Client\PaymentService.Client.csproj" />
     <ProjectReference Include="..\BasketService.Business.Abstractions\BasketService.Business.Abstractions.csproj" />
     <ProjectReference Include="..\BasketService.Business\BasketService.Business.csproj" />
     <ProjectReference Include="..\BasketService.Data.Redis\BasketService.Data.Redis.csproj" />

@@ -6,6 +6,14 @@ namespace PaymentService.Business.Business
 {
     public class PaymentBusiness : IPaymentBusiness
     {
+        private static readonly string[] _dummyFailMessages = new string[]
+        {
+            "Bank connection could not be established.",
+            "Invalid card information.",
+            "Insufficient balance.",
+            "System error, please try again later."
+        };
+
         public Task<Response<PaymentResultViewModel>> ReceivePaymentAsync(PaymentViewModel payViewModel)
         {
             var orderId = new Random().Next(0, 10).ToString();
@@ -16,7 +24,10 @@ namespace PaymentService.Business.Business
             if (randomResult)
                 return Task.FromResult(Response<PaymentResultViewModel>.Success(paymentResult));
             else
-                return Task.FromResult(Response<PaymentResultViewModel>.Fail("Payment failed", paymentResult));
+            {
+                var message = _dummyFailMessages[new Random().Next(0, _dummyFailMessages.Length)];
+                return Task.FromResult(Response<PaymentResultViewModel>.Fail(message, paymentResult));
+            }
         }
     }
 }

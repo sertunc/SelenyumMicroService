@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Shared\SelenyumMicroService.Shared.csproj" />
+    <ProjectReference Include="..\BasketService.Common\BasketService.Common.csproj" />
   </ItemGroup>
 
 </Project>
