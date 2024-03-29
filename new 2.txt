@@ -7,6 +7,7 @@ CatalogService.Data.EFCore
 IdentityService.Api
 IdentityService.Business              -> Business, Exceptions, Extensions, Mapping
 IdentityService.Business.Abstractions -> Interfaces, Models
+IdentityService.Common
 
 PaymentService.Api
 PaymentService.Business
@@ -23,6 +24,7 @@ PaymentService.Messages.Producers.Abstractions
 BasketService.Api
 BasketService.Business
 BasketService.Business.Abstractions
+BasketService.Common
 BasketService.Data.Abstractions
 BasketService.Data.Models
 BasketService.Data.Redis

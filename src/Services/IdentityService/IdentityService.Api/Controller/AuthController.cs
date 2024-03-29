@@ -1,5 +1,5 @@
-﻿using IdentityService.Business.Abstractions.Entities;
-using IdentityService.Business.Abstractions.Interfaces;
+﻿using IdentityService.Business.Abstractions;
+using IdentityService.Common.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityService.Api.Controller

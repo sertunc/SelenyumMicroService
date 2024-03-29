@@ -1,6 +1,6 @@
-﻿using IdentityService.Business.Abstractions.Entities;
+﻿using IdentityService.Common.ViewModels;
 
-namespace IdentityService.Business.Abstractions.Interfaces
+namespace IdentityService.Business.Abstractions
 {
     public interface IIdentityService
     {

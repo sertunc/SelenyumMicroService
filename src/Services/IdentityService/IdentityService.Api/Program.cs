@@ -1,6 +1,6 @@
 using IdentityService.Business.Business;
-using IdentityService.Business.Abstractions.Interfaces;
 using SelenyumMicroService.ServiceDiscovery.Consul;
+using IdentityService.Business.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 var urls = builder.Configuration.GetValue<string>("Urls") ?? Environment.GetEnvironmentVariable("ASPNETCORE_URLS");

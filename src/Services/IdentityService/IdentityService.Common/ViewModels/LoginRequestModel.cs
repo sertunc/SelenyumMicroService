@@ -1,4 +1,4 @@
-﻿namespace IdentityService.Business.Abstractions.Entities
+﻿namespace IdentityService.Common.ViewModels
 {
     public record LoginRequestModel(string Name, string Username, string Password);
 }
