@@ -36,23 +36,9 @@ namespace CatalogService.Data.EFCore.Extensions
 
         private static void SetSeeds(CatalogDbContext catalogDbContext)
         {
-            CatalogBrandsSeed(catalogDbContext);
-
             CatalogTypesSeed(catalogDbContext);
 
             ScheduleTypeSeed(catalogDbContext);
-        }
-
-        private static void CatalogBrandsSeed(CatalogDbContext catalogDbContext)
-        {
-            catalogDbContext.CatalogBrands.AddRange(
-                new CatalogBrand { Id = 1, Brand = "Azure" },
-                new CatalogBrand { Id = 2, Brand = ".NET" },
-                new CatalogBrand { Id = 3, Brand = "Visual Studio" },
-                new CatalogBrand { Id = 4, Brand = "SQL Server" },
-                new CatalogBrand { Id = 5, Brand = "Other" },
-                new CatalogBrand { Id = 6, Brand = "CatalogBrandTestOne" },
-                new CatalogBrand { Id = 7, Brand = "CatalogBrandTestTwo" });
         }
 
         private static void CatalogTypesSeed(CatalogDbContext catalogDbContext)
@@ -69,7 +55,7 @@ namespace CatalogService.Data.EFCore.Extensions
         private static void ScheduleTypeSeed(CatalogDbContext catalogDbContext)
         {
             catalogDbContext.CatalogItems.AddRange(
-                new CatalogItem { Id = 1, Name = ".NET Bot Black Hoodie", Description = ".NET Bot Black Hoodie and more", Price = 19.50M, PictureFileName = "1.png", PictureUri = "http://externalcatalogbaseurltobereplaced/api/pic/1", CatalogTypeId = 2, CatalogBrandId = 2 });
+                new CatalogItem { Id = 1, Name = ".NET Bot Black Hoodie", Description = ".NET Bot Black Hoodie and more", Price = 19.50M, PictureFileName = "1.png", PictureUri = "http://externalcatalogbaseurltobereplaced/api/pic/1", CatalogTypeId = 2 });
         }
     }
 }

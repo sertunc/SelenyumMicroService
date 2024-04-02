@@ -13,11 +13,6 @@ namespace CatalogService.Business.Mapping
                 .ForMember(x => x.Type, opts => opts.MapFrom(x => x.Name))
                 .ReverseMap();
 
-            CreateMap<CatalogBrandsViewModel, CatalogBrand>()
-                .ForMember(x => x.Id, opts => opts.MapFrom(x => x.Id))
-                .ForMember(x => x.Brand, opts => opts.MapFrom(x => x.Name))
-                .ReverseMap();
-
             CreateMap<CatalogItemViewModel, CatalogItem>()
                 .ForMember(x => x.Id, opts => opts.MapFrom(x => x.Id))
                 .ForMember(x => x.Name, opts => opts.MapFrom(x => x.Name))

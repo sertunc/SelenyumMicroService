@@ -27,10 +27,6 @@ namespace CatalogService.Data.EFCore.EntityConfigurations
 
             builder.Ignore(ci => ci.PictureUri);
 
-            builder.HasOne(ci => ci.CatalogBrand)
-                .WithMany()
-                .HasForeignKey(ci => ci.CatalogBrandId);
-
             builder.HasOne(ci => ci.CatalogType)
                 .WithMany()
                 .HasForeignKey(ci => ci.CatalogTypeId);

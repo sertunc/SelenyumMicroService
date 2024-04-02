@@ -6,8 +6,6 @@ namespace CatalogService.Data.Abstractions.Interfaces
     {
         Task<IEnumerable<CatalogType>> GetCatalogTypesAsync();
 
-        Task<IEnumerable<CatalogBrand>> GetCatalogBrandsAsync();
-
         Task<CatalogItem> GetCatalogItemAsync(int id);
 
         Task<int> GetCatalogItemsTotalAsync();

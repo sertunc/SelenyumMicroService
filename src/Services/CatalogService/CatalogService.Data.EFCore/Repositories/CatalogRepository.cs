@@ -20,11 +20,6 @@ namespace CatalogService.Data.EFCore.Repositories
             return await dbContext.CatalogTypes.ToListAsync();
         }
 
-        public async Task<IEnumerable<CatalogBrand>> GetCatalogBrandsAsync()
-        {
-            return await dbContext.CatalogBrands.ToListAsync();
-        }
-
         public async Task<CatalogItem> GetCatalogItemAsync(int id)
         {
             return await dbContext.CatalogItems.FirstOrDefaultAsync(x => x.Id == id);

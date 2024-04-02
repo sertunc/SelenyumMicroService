@@ -30,17 +30,6 @@ namespace CatalogService.Api.Controllers
         }
 
         [HttpGet]
-        [Route("CatalogBrands")]
-        public async Task<IActionResult> CatalogBrands()
-        {
-            _logger.LogDebug("Getting catalog brands");
-
-            var result = await _catalogBusiness.GetCatalogBrandsAsync();
-
-            return StatusCode(result.StatusCode, result);
-        }
-
-        [HttpGet]
         [Route("Items/{id}")]
         public async Task<IActionResult> ItemById(int id)
         {
