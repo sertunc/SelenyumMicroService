@@ -19,7 +19,7 @@ namespace CatalogService.Api.Controllers
         }
 
         [HttpGet]
-        [Route("CatalogTypes")]
+        [Route("types")]
         public async Task<IActionResult> CatalogTypes()
         {
             _logger.LogDebug("Getting catalog types");
@@ -30,7 +30,7 @@ namespace CatalogService.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Items/{id}")]
+        [Route("items/{id}")]
         public async Task<IActionResult> ItemById(int id)
         {
             _logger.LogDebug("Getting catalog item by id={0}", id);
@@ -41,7 +41,7 @@ namespace CatalogService.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Items")]
+        [Route("items")]
         public async Task<IActionResult> Items([FromQuery] int pageSize = 10, [FromQuery] int pageIndex = 0)
         {
             _logger.LogDebug("Getting catalog items");
