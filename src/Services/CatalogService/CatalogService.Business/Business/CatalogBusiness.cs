@@ -47,6 +47,8 @@ namespace CatalogService.Business.Business
             var totalItems = await _catalogRepository.GetCatalogItemsTotalAsync();
             var itemsOnPage = await _catalogRepository.GetCatalogItemsAsync(pageSize, pageIndex);
 
+            //TODO: Currency type should be kept for each product in the database
+            //TODO: Return currency based on user's region or choice
             var items = _mapper.Map<IEnumerable<CatalogListViewModel>>(itemsOnPage);
 
             var result = new PaginatedItemsViewModel<CatalogListViewModel>(pageIndex, pageSize, totalItems, items);

@@ -16,16 +16,13 @@ namespace CatalogService.Data.EFCore.EntityConfigurations
                 .IsRequired();
 
             builder.Property(ci => ci.Name)
-                .IsRequired()
-                .HasMaxLength(50);
+                .IsRequired();
 
             builder.Property(ci => ci.Price)
                 .IsRequired();
 
-            builder.Property(ci => ci.PictureFileName)
-                .IsRequired(false);
-
-            builder.Ignore(ci => ci.PictureUri);
+            builder.Property(ci => ci.PictureUri)
+                .IsRequired();
 
             builder.HasOne(ci => ci.CatalogType)
                 .WithMany()

@@ -1,5 +1,5 @@
 import * as React from "react";
-import CatalogTypes from "./CatalogTypes";
+import CatalogTypes from "../CatalogTypes";
 import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -15,6 +15,7 @@ import Grid from "@mui/material/Grid";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import IconBreadcrumbs from "./Breadcrumbs";
 
 const drawerWidth: number = 240;
 
@@ -136,8 +137,12 @@ export default function Layout(props: any) {
           }}
         >
           <Toolbar />
+
           <Container maxWidth={false}>
             <Grid container spacing={2}>
+              <Grid item xs={12} md={12} lg={12}>
+                <IconBreadcrumbs />
+              </Grid>
               <Grid item xs={12} md={12} lg={12}>
                 {getChildren(props)}
               </Grid>
