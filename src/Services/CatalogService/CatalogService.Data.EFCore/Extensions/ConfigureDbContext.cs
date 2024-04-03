@@ -44,12 +44,10 @@ namespace CatalogService.Data.EFCore.Extensions
         private static void CatalogTypesSeed(CatalogDbContext catalogDbContext)
         {
             catalogDbContext.CatalogTypes.AddRange(
-                new CatalogType { Id = 1, Type = "Mug" },
-                new CatalogType { Id = 2, Type = "T-Shirt" },
-                new CatalogType { Id = 3, Type = "Sheet" },
-                new CatalogType { Id = 4, Type = "USB Memory Stick" },
-                new CatalogType { Id = 5, Type = "CatalogTypeTestOne" },
-                new CatalogType { Id = 6, Type = "CatalogTypeTestTwo" });
+                new CatalogType { Id = 1, Type = "Mug", IconName = "CoffeeIcon" },
+                new CatalogType { Id = 2, Type = "T-Shirt", IconName = "ImageIcon" },
+                new CatalogType { Id = 3, Type = "Sheet", IconName = "NoteIcon" },
+                new CatalogType { Id = 4, Type = "USB Memory Stick", IconName = "SdCardIcon" });
         }
 
         private static void ScheduleTypeSeed(CatalogDbContext catalogDbContext)
