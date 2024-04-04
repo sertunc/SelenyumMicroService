@@ -29,6 +29,18 @@ namespace CatalogService.Business.Business
             return Response<IEnumerable<CatalogTypesViewModel>>.Success(result);
         }
 
+        public async Task<Response<PaginatedItemsViewModel<CatalogListViewModel>>> GetCatalogItemByCatalogTypeAsync(int catalogTypeId, int pageSize, int pageIndex)
+        {
+            var totalItems = await _catalogRepository.GetCatalogItemByCatalogTypeTotalAsync(catalogTypeId);
+            var itemsOnPage = await _catalogRepository.GetCatalogItemByCatalogTypeAsync(catalogTypeId, pageSize, pageIndex);
+
+            var items = _mapper.Map<IEnumerable<CatalogListViewModel>>(itemsOnPage);
+
+            var result = new PaginatedItemsViewModel<CatalogListViewModel>(pageIndex, pageSize, totalItems, items);
+
+            return Response<PaginatedItemsViewModel<CatalogListViewModel>>.Success(result);
+        }
+
         public async Task<Response<CatalogItemViewModel>> GetCatalogItemAsync(int id)
         {
             var catalogItem = await _catalogRepository.GetCatalogItemAsync(id);

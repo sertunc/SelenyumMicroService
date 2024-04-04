@@ -7,6 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { CatalogTypeModel } from "../models/CatalogTypeModel";
 
+import HomeIcon from "@mui/icons-material/Home";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import ImageIcon from "@mui/icons-material/Image";
 import NoteIcon from "@mui/icons-material/Note";
@@ -24,6 +25,18 @@ export default function CatalogTypes() {
 
   return (
     <List component="nav">
+      <Link
+        style={{ color: "inherit", textDecoration: "inherit" }}
+        key={0}
+        to={"/"}
+      >
+        <ListItemButton key={0}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Home"} />
+        </ListItemButton>
+      </Link>
       {model.map((item) => (
         <Link
           style={{ color: "inherit", textDecoration: "inherit" }}

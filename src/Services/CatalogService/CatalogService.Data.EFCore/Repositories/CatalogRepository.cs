@@ -20,6 +20,20 @@ namespace CatalogService.Data.EFCore.Repositories
             return await dbContext.CatalogTypes.ToListAsync();
         }
 
+        public async Task<int> GetCatalogItemByCatalogTypeTotalAsync(int catalogTypeId)
+        {
+            return await dbContext.CatalogItems.CountAsync(x => x.CatalogTypeId == catalogTypeId);
+        }
+
+        public async Task<IEnumerable<CatalogItem>> GetCatalogItemByCatalogTypeAsync(int catalogTypeId, int pageSize, int pageIndex)
+        {
+            return await dbContext.CatalogItems
+                .Where(x => x.CatalogTypeId == catalogTypeId)
+                .Skip(pageSize * pageIndex)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
         public async Task<CatalogItem> GetCatalogItemAsync(int id)
         {
             return await dbContext.CatalogItems
@@ -35,7 +49,6 @@ namespace CatalogService.Data.EFCore.Repositories
         public async Task<IEnumerable<CatalogItem>> GetCatalogItemsAsync(int pageSize, int pageIndex)
         {
             return await dbContext.CatalogItems
-                .OrderBy(x => x.Name)
                 .Skip(pageSize * pageIndex)
                 .Take(pageSize)
                 .ToListAsync();

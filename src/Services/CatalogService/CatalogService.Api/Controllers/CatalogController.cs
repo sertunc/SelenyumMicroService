@@ -30,6 +30,17 @@ namespace CatalogService.Api.Controllers
         }
 
         [HttpGet]
+        [Route("itemsbytype")]
+        public async Task<IActionResult> ItemByCatalogType([FromQuery] int catalogTypeId, [FromQuery] int pageSize = 5, [FromQuery] int pageIndex = 0)
+        {
+            _logger.LogDebug("Getting catlog by catalog type");
+
+            var result = await _catalogBusiness.GetCatalogItemByCatalogTypeAsync(catalogTypeId, pageSize, pageIndex);
+
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet]
         [Route("items/{id}")]
         public async Task<IActionResult> ItemById(int id)
         {
@@ -42,7 +53,7 @@ namespace CatalogService.Api.Controllers
 
         [HttpGet]
         [Route("items")]
-        public async Task<IActionResult> Items([FromQuery] int pageSize = 10, [FromQuery] int pageIndex = 0)
+        public async Task<IActionResult> Items([FromQuery] int pageSize = 5, [FromQuery] int pageIndex = 0)
         {
             _logger.LogDebug("Getting catalog items");
 

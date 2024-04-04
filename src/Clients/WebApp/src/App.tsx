@@ -19,6 +19,11 @@ function App(props: any) {
               errorElement={<Error />}
             />
             <Route
+              path="catalog/:id"
+              element={<CatalogList />}
+              errorElement={<Error />}
+            />
+            <Route
               path="catalogdetail/:id"
               element={<CatalogDetail />}
               errorElement={<Error />}

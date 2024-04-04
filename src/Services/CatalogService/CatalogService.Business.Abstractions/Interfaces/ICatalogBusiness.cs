@@ -7,6 +7,8 @@ namespace CatalogService.Business.Abstractions.Interfaces
     {
         Task<Response<IEnumerable<CatalogTypesViewModel>>> GetCatalogTypesAsync();
 
+        Task<Response<PaginatedItemsViewModel<CatalogListViewModel>>> GetCatalogItemByCatalogTypeAsync(int catalogTypeId, int pageSize, int pageIndex);
+
         Task<Response<CatalogItemViewModel>> GetCatalogItemAsync(int id);
 
         Task<Response<PaginatedItemsViewModel<CatalogListViewModel>>> GetCatalogItemsAsync(int pageSize, int pageIndex);

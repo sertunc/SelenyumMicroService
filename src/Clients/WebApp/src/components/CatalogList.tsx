@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { Divider, Grid, Stack, Pagination } from "@mui/material";
 import { CatalogListModel } from "../models/CatalogListModel";
 import CatalogListItem from "./CatalogListItem";
 
 export default function CatalogList() {
+  const { id } = useParams();
+
   const [model, setModel] = useState<CatalogListModel>({
     count: 0,
     data: [],
@@ -14,12 +17,19 @@ export default function CatalogList() {
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get(
-        `catalog/items?pagesize=${model.pageSize}&pageindex=${model.pageIndex}`
-      );
-      setModel(response.data.data);
+      if (id === undefined) {
+        const response = await axios.get(
+          `catalog/items?pagesize=${model.pageSize}&pageindex=${model.pageIndex}`
+        );
+        setModel(response.data.data);
+      } else {
+        const response2 = await axios.get(
+          `catalog/itemsbytype?pagesize=${model.pageSize}&pageindex=${model.pageIndex}&catalogTypeId=${id}`
+        );
+        setModel(response2.data.data);
+      }
     })();
-  }, [model.pageIndex]);
+  }, [id, model.pageIndex]);
 
   const handleChange = (event: React.ChangeEvent<unknown>, page: number) => {
     setModel({
