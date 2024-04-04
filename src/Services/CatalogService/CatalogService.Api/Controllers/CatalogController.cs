@@ -37,7 +37,7 @@ namespace CatalogService.Api.Controllers
 
             var result = await _catalogBusiness.GetCatalogItemAsync(id);
 
-            return StatusCode(result.StatusCode, result);
+            return StatusCode(200, result);
         }
 
         [HttpGet]

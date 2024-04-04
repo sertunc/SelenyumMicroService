@@ -11,10 +11,10 @@ import {
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
-import { CatalogItemViewModel } from "../models/CatalogItemModel";
+import { CatalogListViewModel } from "../models/CatalogListModel";
 
 interface IProps {
-  item: CatalogItemViewModel;
+  item: CatalogListViewModel;
 }
 
 export default function CatalogListItem(props: IProps) {

@@ -14,19 +14,16 @@ namespace CatalogService.Business.Mapping
                 .ForMember(x => x.IconName, opts => opts.MapFrom(x => x.IconName))
                 .ReverseMap();
 
-            CreateMap<CatalogItemViewModel, CatalogItem>()
-                .ForMember(x => x.Id, opts => opts.MapFrom(x => x.Id))
-                .ForMember(x => x.Name, opts => opts.MapFrom(x => x.Name))
-                .ForMember(x => x.Price, opts => opts.MapFrom(x => x.Price))
-                .ReverseMap();
-
-            CreateMap<CatalogListViewModel, CatalogItem>()
+            CreateMap<CatalogItem, CatalogItemViewModel>()
                 .ForMember(x => x.Id, opts => opts.MapFrom(x => x.Id))
                 .ForMember(x => x.Name, opts => opts.MapFrom(x => x.Name))
                 .ForMember(x => x.Description, opts => opts.MapFrom(x => x.Description))
                 .ForMember(x => x.Price, opts => opts.MapFrom(x => x.Price))
                 .ForMember(x => x.PictureUri, opts => opts.MapFrom(x => x.PictureUri))
+                .ForMember(x => x.CatalogType, opt => opt.MapFrom(x => x.CatalogType.Type))
                 .ReverseMap();
+
+            CreateMap<CatalogListViewModel, CatalogItem>().ReverseMap();
         }
     }
 }

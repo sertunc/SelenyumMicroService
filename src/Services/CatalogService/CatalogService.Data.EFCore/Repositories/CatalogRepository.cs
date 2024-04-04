@@ -22,7 +22,9 @@ namespace CatalogService.Data.EFCore.Repositories
 
         public async Task<CatalogItem> GetCatalogItemAsync(int id)
         {
-            return await dbContext.CatalogItems.FirstOrDefaultAsync(x => x.Id == id);
+            return await dbContext.CatalogItems
+                                  .Include(x => x.CatalogType)
+                                  .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<int> GetCatalogItemsTotalAsync()
