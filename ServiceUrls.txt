@@ -9,3 +9,5 @@ NotificationService.Api	-> http://localhost:5006
 
 
 docker run -d --name=consul -p 8500:8500 consul:1.15.4
+docker run -d --name redis -d redis:latest
+docker run -d --name postgresql -e POSTGRES_PASSWORD=postgres postgres:latest
