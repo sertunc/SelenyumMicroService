@@ -66,7 +66,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 2,
                     CatalogTypeId = 1,
-                    Name = "Aardman Wallace ve Gromit Mug",
+                    Name = "Aardman Wallace Mug",
                     Description = "Aardman Wallace ve Gromit Şekilli Mug - Gromit",
                     Price = 98.95M,
                     PictureUri = "https://m.media-amazon.com/images/I/61Rjq4RxetL._AC_UF1000,1000_QL80_.jpg",
@@ -75,7 +75,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 3,
                     CatalogTypeId = 1,
-                    Name = "Starbucks Logo Mug, 14oz",
+                    Name = "Starbucks Logo Mug",
                     Description = "Starbucks Logo Mug, 14oz",
                     Price = 38.95M,
                     PictureUri = "https://m.media-amazon.com/images/I/817X3ZGgYVL._AC_UF894,1000_QL80_.jpg",
@@ -84,7 +84,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 4,
                     CatalogTypeId = 1,
-                    Name = "Mora Ceramic Large Latte Mug",
+                    Name = "Ceramic Large Latte Mug",
                     Description = "Mora Ceramic Large Latte Mug Set of 4, 16oz - Microwavable, Porcelain Coffee Cups With Big Handle - Modern, Boho, Unique Style For Any Kitchen. Microwave Safe Stoneware - Assorted Neutrals",
                     Price = 32.95M,
                     PictureUri = "https://m.media-amazon.com/images/I/61vbV+u+89L._AC_UL320_.jpg",
@@ -93,7 +93,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 5,
                     CatalogTypeId = 2,
-                    Name = "Gildan Men's Crew T-Shirts, Multipack, Style G1100",
+                    Name = "Gildan Men's Crew T-Shirts",
                     Description = "Gildan Men's Crew T-Shirts, Multipack, Style G1100",
                     Price = 16.80M,
                     PictureUri = "https://m.media-amazon.com/images/I/710o0VupScL._AC_SX569_.jpg",
@@ -102,7 +102,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 6,
                     CatalogTypeId = 2,
-                    Name = "Comfort Colors Adult Short Sleeve Tee, Style 1717",
+                    Name = "Comfort Colors Adult Short Sleeve Tee",
                     Description = "Comfort Colors Adult Short Sleeve Tee, Style 1717",
                     Price = 39.83M,
                     PictureUri = "https://m.media-amazon.com/images/I/61dBwIKrvFL._AC_SX569_.jpg",
@@ -111,7 +111,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 7,
                     CatalogTypeId = 2,
-                    Name = "Hanes Women's Perfect-T Short Sleeve Cotton Crewneck T-Shirt",
+                    Name = "Hanes Women's Cotton T-Shirt",
                     Description = "Hanes Women's Perfect-T Short Sleeve Cotton Crewneck T-Shirt",
                     Price = 10.83M,
                     PictureUri = "https://m.media-amazon.com/images/I/813X6oCL-ML._AC_SX569_.jpg",
@@ -120,7 +120,7 @@ namespace CatalogService.Data.EFCore.Extensions
                 {
                     Id = 8,
                     CatalogTypeId = 3,
-                    Name = "Amazon Basics Lightweight Super Soft Easy Care Microfiber 4-Piece Bed Sheet",
+                    Name = "Microfiber 4-Piece Bed Sheet",
                     Description = "Amazon Basics Lightweight Super Soft Easy Care Microfiber 4-Piece Bed Sheet Set with 14-Inch Deep Pockets, Full, Bright White, Solid",
                     Price = 15.99M,
                     PictureUri = "https://m.media-amazon.com/images/I/618xPpCwo6L._AC_SX679_.jpg",

@@ -5,7 +5,7 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { CatalogTypeViewModel } from "../models/CatalogTypeViewModel";
+import { CatalogTypeModel } from "../models/CatalogTypeModel";
 
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import ImageIcon from "@mui/icons-material/Image";
@@ -13,7 +13,7 @@ import NoteIcon from "@mui/icons-material/Note";
 import SdCardIcon from "@mui/icons-material/SdCard";
 
 export default function CatalogTypes() {
-  const [model, setModel] = useState<CatalogTypeViewModel[]>([]);
+  const [model, setModel] = useState<CatalogTypeModel[]>([]);
 
   useEffect(() => {
     (async () => {
