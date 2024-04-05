@@ -36,7 +36,7 @@ export default function CatalogListItem(props: IProps) {
           </IconButton>
         }
       />
-      <Link style={CommonStyles.link} to={`catalogdetail/${props.item.id}`}>
+      <Link style={CommonStyles.link} to={`/catalogdetail/${props.item.id}`}>
         <CardMedia
           component="img"
           height="194"
