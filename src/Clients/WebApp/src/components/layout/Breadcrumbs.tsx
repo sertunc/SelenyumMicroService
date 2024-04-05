@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import CommonStyles from "../../CommonStyles";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
 import { BreadcrumbItemModel } from "../../models/BreadcrumbItemModel";
-
-type CatalogInfo = [string, string];
+import { getCatalogInfo, getCatalogCategory } from "./BreadcrumbUtils";
+import CommonStyles from "../../CommonStyles";
 
 export default function IconBreadcrumbs() {
   const location = useLocation();
@@ -57,38 +56,6 @@ export default function IconBreadcrumbs() {
     }
 
     setItems(items);
-  };
-
-  //TODO: maybe we can get from graphdb
-  const getCatalogCategory = (id: string) => {
-    switch (id) {
-      case "1":
-        return "Mug";
-      case "2":
-        return "T-Shirt";
-      case "3":
-        return "Sheet";
-      case "4":
-        return "USB Memory Stick";
-      default:
-        return "Home";
-    }
-  };
-
-  //TODO: maybe we can get from graphdb
-  const getCatalogInfo = (catologId: string): CatalogInfo => {
-    switch (catologId) {
-      case "1":
-        return ["Mug", "Self Stirring Coffee Mug"];
-      case "2":
-        return ["Mug", "Aardman Wallace Mug"];
-      case "5":
-        return ["T-Shirt", "Gildan Men's Crew T-Shirts"];
-      case "8":
-        return ["Sheet", "Microfiber 4-Piece Bed Sheet"];
-      default:
-        return ["Home", "Home"];
-    }
   };
 
   return (
