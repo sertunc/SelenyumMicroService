@@ -1,31 +1,107 @@
-type CatalogInfo = [string, string];
+interface Category {
+  Order: string;
+  Id: string;
+  Name: string;
+  Link: string;
+}
 
-export const getCatalogCategory = (id: string) => {
-  switch (id) {
-    case "1":
-      return "Mug";
-    case "2":
-      return "T-Shirt";
-    case "3":
-      return "Sheet";
-    case "4":
-      return "USB Memory Stick";
-    default:
-      return "Home";
-  }
+interface CatalogItem {
+  Id: string;
+  Name: string;
+  Categories: Category[];
+}
+
+const categories: Category[] = [
+  {
+    Order: "",
+    Id: "1",
+    Name: "Mug",
+    Link: "/catalog/1",
+  },
+  {
+    Order: "",
+    Id: "2",
+    Name: "T-Shirt",
+    Link: "/catalog/2",
+  },
+  {
+    Order: "",
+    Id: "3",
+    Name: "Sheet",
+    Link: "/catalog/3",
+  },
+  {
+    Order: "",
+    Id: "4",
+    Name: "USB Memory Stick",
+    Link: "/catalog/4",
+  },
+];
+
+export const getCategoryInfo = (id: string): Category | null => {
+  const category = categories.find((cat) => cat.Id === id);
+  return category ? category : null;
 };
 
-export const getCatalogInfo = (catalogId: string): CatalogInfo => {
-  switch (catalogId) {
-    case "1":
-      return ["Mug", "Self Stirring Coffee Mug"];
-    case "2":
-      return ["Mug", "Aardman Wallace Mug"];
-    case "5":
-      return ["T-Shirt", "Gildan Men's Crew T-Shirts"];
-    case "8":
-      return ["Sheet", "Microfiber 4-Piece Bed Sheet"];
-    default:
-      return ["Home", "Home"];
+const catalogs: CatalogItem[] = [
+  {
+    Id: "1",
+    Name: "Self Stirring Coffee Mug",
+    Categories: [
+      {
+        Order: "1",
+        Id: "1",
+        Name: "Mug",
+        Link: "/catalog/1",
+      },
+    ],
+  },
+  {
+    Id: "2",
+    Name: "Aardman Wallace Mug",
+    Categories: [
+      {
+        Order: "1",
+        Id: "1",
+        Name: "Mug",
+        Link: "/catalog/1",
+      },
+    ],
+  },
+  {
+    Id: "5",
+    Name: "Gildan Men's Crew T-Shirts",
+    Categories: [
+      {
+        Order: "1",
+        Id: "2",
+        Name: "T-Shirt",
+        Link: "/catalog/2",
+      },
+    ],
+  },
+  {
+    Id: "8",
+    Name: "Microfiber 4-Piece Bed Sheet",
+    Categories: [
+      {
+        Order: "1",
+        Id: "3",
+        Name: "Sheet",
+        Link: "/catalog/3",
+      },
+    ],
+  },
+];
+
+export const getCatalogInfo = (catalogId: string): CatalogItem | null => {
+  const catalogItem = catalogs.find((item) => item.Id === catalogId);
+  if (catalogItem) {
+    catalogItem.Categories.sort(
+      (a, b) => parseInt(a.Order) - parseInt(b.Order)
+    );
+    return catalogItem;
+  } else {
+    return null;
   }
 };

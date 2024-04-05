@@ -37,7 +37,6 @@ export default function CatalogList() {
       ...model,
       pageIndex: page - 1,
     });
-    console.log(page);
   };
 
   return (

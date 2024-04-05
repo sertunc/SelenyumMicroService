@@ -10,4 +10,5 @@ NotificationService.Api	-> http://localhost:5006
 
 docker run -d --name=consul -p 8500:8500 consul:1.15.4
 docker run -d --name redis -d redis:latest
-docker run -d --name postgresql -e POSTGRES_PASSWORD=postgres postgres:latest
+docker run -d --name postgre_sql -e POSTGRES_PASSWORD=postgres postgres:latest
+docker run -d --name mssql_server -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=5uper5trongPW!" -e "MSSQL_PID=Express" -p 1433:1433 mcr.microsoft.com/mssql/server:2019-latest

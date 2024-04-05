@@ -70,7 +70,6 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Layout(props: any) {
-  console.log("Layout rendered");
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);

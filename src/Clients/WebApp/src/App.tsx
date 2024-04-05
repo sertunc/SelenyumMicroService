@@ -7,7 +7,6 @@ import CatalogDetail from "./components/CatalogDetail";
 import CatalogDetailNotFound from "./components/CatalogDetailNotFound";
 
 function App(props: any) {
-  console.log("App rendered");
   return (
     <AxiosProvider {...props}>
       <BrowserRouter>
