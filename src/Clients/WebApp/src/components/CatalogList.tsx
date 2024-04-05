@@ -58,7 +58,7 @@ export default function CatalogList() {
               color="secondary"
               showFirstButton
               showLastButton
-              count={model.count}
+              count={Math.ceil(model.count / model.pageSize)}
               page={model.pageIndex + 1}
               onChange={handleChange}
             />
