@@ -1,5 +1,6 @@
-import * as React from "react";
+import React, { useState } from "react";
 import CatalogTypes from "../CatalogTypes";
+import CommonStyles from "../../CommonStyles";
 import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -12,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -69,7 +71,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function Layout(props: any) {
   console.log("Layout rendered");
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -128,14 +130,7 @@ export default function Layout(props: any) {
           <Divider />
           <CatalogTypes />
         </Drawer>
-        <Box
-          component="main"
-          style={{
-            flexGrow: 1,
-            height: "100vh",
-            overflow: "auto",
-          }}
-        >
+        <Box component="main" style={CommonStyles.layoutBox}>
           <Toolbar />
 
           <Container maxWidth={false}>
