@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Divider, Grid, Stack, Pagination } from "@mui/material";
 import { CatalogListModel } from "../models/CatalogListModel";
 import CatalogListItem from "./CatalogListItem";
+import CommonStyles from "../CommonStyles";
 
 export default function CatalogList() {
   const { id } = useParams();
@@ -50,14 +51,7 @@ export default function CatalogList() {
       </Grid>
 
       {model.data?.length > 0 && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: 20,
-            marginBottom: 20,
-          }}
-        >
+        <div style={CommonStyles.paginationContainer}>
           <Divider />
           <Stack spacing={2}>
             <Pagination

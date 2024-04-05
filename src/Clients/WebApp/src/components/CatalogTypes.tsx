@@ -6,6 +6,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { CatalogTypeModel } from "../models/CatalogTypeModel";
+import CommonStyles from "../CommonStyles";
 
 import HomeIcon from "@mui/icons-material/Home";
 import CoffeeIcon from "@mui/icons-material/Coffee";
@@ -25,11 +26,7 @@ export default function CatalogTypes() {
 
   return (
     <List component="nav">
-      <Link
-        style={{ color: "inherit", textDecoration: "inherit" }}
-        key={0}
-        to={"/"}
-      >
+      <Link style={CommonStyles.link} key={0} to={"/"}>
         <ListItemButton key={0}>
           <ListItemIcon>
             <HomeIcon />
@@ -39,7 +36,7 @@ export default function CatalogTypes() {
       </Link>
       {model.map((item) => (
         <Link
-          style={{ color: "inherit", textDecoration: "inherit" }}
+          style={CommonStyles.link}
           key={item.id}
           to={`/catalog/${item.id}`}
         >

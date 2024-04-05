@@ -9,6 +9,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import CommonStyles from "../CommonStyles";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
 import { CatalogListViewModel } from "../models/CatalogListModel";
@@ -35,10 +36,7 @@ export default function CatalogListItem(props: IProps) {
           </IconButton>
         }
       />
-      <Link
-        style={{ color: "inherit", textDecoration: "inherit" }}
-        to={`catalogdetail/${props.item.id}`}
-      >
+      <Link style={CommonStyles.link} to={`catalogdetail/${props.item.id}`}>
         <CardMedia
           component="img"
           height="194"
@@ -57,7 +55,7 @@ export default function CatalogListItem(props: IProps) {
           color="secondary"
           variant="contained"
           size="small"
-          style={{ marginLeft: "auto" }}
+          style={CommonStyles.addToBasketButton}
         >
           SEPETE EKLE
         </Button>
