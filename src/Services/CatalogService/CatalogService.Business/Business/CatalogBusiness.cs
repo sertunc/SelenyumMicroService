@@ -31,8 +31,9 @@ namespace CatalogService.Business.Business
 
         public async Task<Response<PaginatedItemsViewModel<CatalogListViewModel>>> GetCatalogItemByCatalogTypeAsync(int catalogTypeId, int pageSize, int pageIndex)
         {
+            var page_index = pageIndex <= 0 ? 0 : pageIndex - 1;
             var totalItems = await _catalogRepository.GetCatalogItemByCatalogTypeTotalAsync(catalogTypeId);
-            var itemsOnPage = await _catalogRepository.GetCatalogItemByCatalogTypeAsync(catalogTypeId, pageSize, pageIndex);
+            var itemsOnPage = await _catalogRepository.GetCatalogItemByCatalogTypeAsync(catalogTypeId, pageSize, page_index);
 
             var items = _mapper.Map<IEnumerable<CatalogListViewModel>>(itemsOnPage);
 
@@ -56,8 +57,9 @@ namespace CatalogService.Business.Business
 
         public async Task<Response<PaginatedItemsViewModel<CatalogListViewModel>>> GetCatalogItemsAsync(int pageSize, int pageIndex)
         {
+            var page_index = pageIndex <= 0 ? 0 : pageIndex - 1;
             var totalItems = await _catalogRepository.GetCatalogItemsTotalAsync();
-            var itemsOnPage = await _catalogRepository.GetCatalogItemsAsync(pageSize, pageIndex);
+            var itemsOnPage = await _catalogRepository.GetCatalogItemsAsync(pageSize, page_index);
 
             //TODO: Currency type should be kept for each product in the database
             //TODO: Return currency based on user's region or choice
