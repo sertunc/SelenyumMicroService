@@ -1,13 +1,15 @@
-using IdentityService.Business.Business;
+using IdentityService.Api.BusinessAbstractions;
+using IdentityService.Api.Extensions;
 using SelenyumMicroService.ServiceDiscovery.Consul;
-using IdentityService.Business.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 var urls = builder.Configuration.GetValue<string>("Urls") ?? Environment.GetEnvironmentVariable("ASPNETCORE_URLS");
 ArgumentNullException.ThrowIfNull(urls);
 
 // Add services to the container.
-builder.Services.AddScoped<IIdentityService, CustomIdentityService>();
+builder.Services.AddDbContextConfigurations(builder.Configuration);
+builder.Services.AddAuthorization();
+builder.Services.AddScoped<IIdentityService, IdentityService.Api.Business.IdentityService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

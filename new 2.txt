@@ -5,9 +5,6 @@ CatalogService.Data.Abstractions      -> Entities, Interfaces
 CatalogService.Data.EFCore
 
 IdentityService.Api
-IdentityService.Business              -> Business, Exceptions, Extensions, Mapping
-IdentityService.Business.Abstractions -> Interfaces, Models
-IdentityService.Common
 
 PaymentService.Api
 PaymentService.Business
