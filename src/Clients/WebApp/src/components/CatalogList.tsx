@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { Divider, Grid, Stack, Pagination } from "@mui/material";
 import { CatalogListModel } from "../models/CatalogListModel";
 import CatalogListItem from "./CatalogListItem";
@@ -9,6 +9,7 @@ import CommonStyles from "../CommonStyles";
 export default function CatalogList() {
   const { id } = useParams();
 
+  const [searchParams, setSearchParams] = useSearchParams();
   const [model, setModel] = useState<CatalogListModel>({
     count: 0,
     data: [],
@@ -18,25 +19,22 @@ export default function CatalogList() {
 
   useEffect(() => {
     (async () => {
+      const page = searchParams.get("page") || "1";
+
       if (id === undefined) {
-        const response = await axios.get(
-          `catalog/items?pagesize=${model.pageSize}&pageindex=${model.pageIndex}`
-        );
+        const response = await axios.get(`catalog/items?pageindex=${page}`);
         setModel(response.data.data);
       } else {
         const response2 = await axios.get(
-          `catalog/itemsbytype?pagesize=${model.pageSize}&pageindex=${model.pageIndex}&catalogTypeId=${id}`
+          `catalog/itemsbytype?pageindex=${page}&catalogTypeId=${id}`
         );
         setModel(response2.data.data);
       }
     })();
-  }, [id, model.pageIndex]);
+  }, [id, searchParams]);
 
   const handleChange = (event: React.ChangeEvent<unknown>, page: number) => {
-    setModel({
-      ...model,
-      pageIndex: page - 1,
-    });
+    setSearchParams({ page: page.toString() });
   };
 
   return (
@@ -58,7 +56,7 @@ export default function CatalogList() {
               showFirstButton
               showLastButton
               count={Math.ceil(model.count / model.pageSize)}
-              page={model.pageIndex + 1}
+              page={model.pageIndex}
               onChange={handleChange}
             />
           </Stack>

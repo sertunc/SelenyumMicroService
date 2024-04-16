@@ -17,7 +17,12 @@ import NoteIcon from "@mui/icons-material/Note";
 import SdCardIcon from "@mui/icons-material/SdCard";
 
 export default function CatalogTypes() {
+  const [menuId, setMenuId] = useState(0);
   const [model, setModel] = useState<CatalogTypeModel[]>([]);
+
+  const handleMenuClick = (menuId: number) => {
+    setMenuId(menuId);
+  };
 
   useEffect(() => {
     (async () => {
@@ -29,7 +34,11 @@ export default function CatalogTypes() {
   return (
     <List component="nav">
       <Link style={CommonStyles.link} key={0} to={"/"}>
-        <ListItemButton key={0}>
+        <ListItemButton
+          key={0}
+          selected={menuId === 0}
+          onClick={() => handleMenuClick(0)}
+        >
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
@@ -42,7 +51,11 @@ export default function CatalogTypes() {
           key={item.id}
           to={`/catalog/${item.id}`}
         >
-          <ListItemButton key={item.id}>
+          <ListItemButton
+            key={item.id}
+            selected={menuId === item.id}
+            onClick={() => handleMenuClick(item.id)}
+          >
             <ListItemIcon>
               <MenuIcon name={item.iconName} />
             </ListItemIcon>
