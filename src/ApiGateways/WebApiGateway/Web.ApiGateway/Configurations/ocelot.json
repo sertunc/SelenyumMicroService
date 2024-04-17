@@ -12,10 +12,10 @@
     {
       "UseServiceDiscovery": true,
       "ServiceName": "IdentityService",
-      "DownstreamPathTemplate": "/api/auth/login",
+      "DownstreamPathTemplate": "/api/auth/{everything}",
       "DownstreamScheme": "http",
 
-      "UpstreamPathTemplate": "/auth",
+      "UpstreamPathTemplate": "/auth/{everything}",
       "UpstreamHttpMethod": [ "Post" ]
     },
     {

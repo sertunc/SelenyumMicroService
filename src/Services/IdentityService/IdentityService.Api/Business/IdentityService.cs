@@ -85,6 +85,11 @@ namespace IdentityService.Api.Business
 
         public async Task<Response<bool>> SignupAsync(SignupRequestModel signupRequestModel)
         {
+            if (signupRequestModel.Password != signupRequestModel.ConfirmPassword)
+            {
+                return Response<bool>.Fail("Passwords do not match");
+            }
+
             var errorList = new List<string>();
             var user = new ApplicationUser { UserName = signupRequestModel.Username, Email = signupRequestModel.Email, Name = signupRequestModel.Name, Surname = signupRequestModel.Surname };
             var result = await _userManager.CreateAsync(user, signupRequestModel.Password);
@@ -94,7 +99,7 @@ namespace IdentityService.Api.Business
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 await _userManager.AddToRoleAsync(user, nameof(UserRole.Customer));
 
-                return Response<bool>.Success(true, 200);
+                return Response<bool>.Success(true, "User created successfully. You can now login.");
             }
             else
             {

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CatalogTypes from "../CatalogTypes";
 import CommonStyles from "../../CommonStyles";
 import { styled } from "@mui/material/styles";
+import { Button } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
@@ -70,9 +72,16 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Layout(props: any) {
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(true);
+
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const handleClick = () => {
+    navigate("/signin");
   };
 
   return (
@@ -106,6 +115,9 @@ export default function Layout(props: any) {
             >
               {import.meta.env.VITE_HEADER}
             </Typography>
+            <Button color="inherit" onClick={handleClick}>
+              Hello, sign in
+            </Button>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
