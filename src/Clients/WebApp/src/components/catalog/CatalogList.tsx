@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useSearchParams } from "react-router-dom";
 import { Divider, Grid, Stack, Pagination } from "@mui/material";
-import { CatalogListModel } from "../models/CatalogListModel";
+import { CatalogListModel } from "../../models/CatalogListModel";
 import CatalogListItem from "./CatalogListItem";
-import CommonStyles from "../CommonStyles";
+import CommonStyles from "../../CommonStyles";
 
 export default function CatalogList() {
   const { id } = useParams();

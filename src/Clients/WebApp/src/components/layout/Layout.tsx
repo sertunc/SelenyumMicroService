@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserInfo from "./UserInfo";
-import CatalogTypes from "../CatalogTypes";
+import CatalogTypes from "../catalog/CatalogTypes";
 import CommonStyles from "../../CommonStyles";
 import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";

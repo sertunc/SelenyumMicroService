@@ -9,10 +9,10 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import CommonStyles from "../CommonStyles";
+import CommonStyles from "../../CommonStyles";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
-import { CatalogListViewModel } from "../models/CatalogListModel";
+import { CatalogListViewModel } from "../../models/CatalogListModel";
 
 interface IProps {
   item: CatalogListViewModel;

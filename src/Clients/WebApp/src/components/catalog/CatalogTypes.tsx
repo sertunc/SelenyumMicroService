@@ -7,8 +7,8 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { CatalogTypeModel } from "../models/CatalogTypeModel";
-import CommonStyles from "../CommonStyles";
+import { CatalogTypeModel } from "../../models/CatalogTypeModel";
+import CommonStyles from "../../CommonStyles";
 
 import HomeIcon from "@mui/icons-material/Home";
 import CoffeeIcon from "@mui/icons-material/Coffee";

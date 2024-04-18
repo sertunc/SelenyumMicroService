@@ -6,9 +6,9 @@ import Layout from "./components/layout/Layout";
 import AxiosProvider from "./components/core/AxiosProvider";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-import CatalogList from "./components/CatalogList";
-import CatalogDetail from "./components/CatalogDetail";
-import CatalogDetailNotFound from "./components/CatalogDetailNotFound";
+import CatalogList from "./components/catalog/CatalogList";
+import CatalogDetail from "./components/catalog/CatalogDetail";
+import CatalogDetailNotFound from "./components/catalog/CatalogDetailNotFound";
 
 function App(props: any) {
   return (

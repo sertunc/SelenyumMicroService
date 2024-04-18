@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import CommonStyles from "../CommonStyles";
+import CommonStyles from "../../CommonStyles";
 import {
   Button,
   Card,
@@ -14,7 +14,7 @@ import {
   IconButton,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { CatalogItemModel } from "../models/CatalogItemModel";
+import { CatalogItemModel } from "../../models/CatalogItemModel";
 
 export default function CatalogDetail() {
   const navigate = useNavigate();
