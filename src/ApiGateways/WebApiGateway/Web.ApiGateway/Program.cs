@@ -1,4 +1,3 @@
-using Consul;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;

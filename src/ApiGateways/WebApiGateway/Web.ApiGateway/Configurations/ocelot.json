@@ -16,7 +16,7 @@
       "DownstreamScheme": "http",
 
       "UpstreamPathTemplate": "/auth/{everything}",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ]
     },
     {
       "UseServiceDiscovery": true,

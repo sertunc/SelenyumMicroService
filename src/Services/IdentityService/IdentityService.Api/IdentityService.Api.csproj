@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Bootstrapper\SelenyumMicroService.Bootstrapper.csproj" />
     <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.ServiceDiscovery.Consul\SelenyumMicroService.ServiceDiscovery.Consul.csproj" />
     <ProjectReference Include="..\..\..\Shared\SelenyumMicroService.Shared\SelenyumMicroService.Shared.csproj" />
   </ItemGroup>

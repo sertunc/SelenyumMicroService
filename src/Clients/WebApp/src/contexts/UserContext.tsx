@@ -21,6 +21,7 @@ interface UserContextType {
   cart: Cart;
   addToCart: (product: Product, quantity: number) => void;
   removeFromCart: (productId: number) => void;
+  totalItems: () => number;
   clearCart: () => void;
 }
 
@@ -58,14 +59,19 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     setCart([]);
   };
 
+  const totalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
   const value = {
     user,
     setUserInfo,
 
+    cart,
     addToCart,
     removeFromCart,
     clearCart,
-    cart,
+    totalItems,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

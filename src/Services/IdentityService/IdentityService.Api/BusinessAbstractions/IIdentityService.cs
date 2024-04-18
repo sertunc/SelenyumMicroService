@@ -8,5 +8,7 @@ namespace IdentityService.Api.BusinessAbstractions
         Task<Response<LoginResponseModel>> LoginAsync(LoginRequestModel loginRequestModel);
 
         Task<Response<bool>> SignupAsync(SignupRequestModel signupRequestModel);
+
+        Task<Response<UserProfileResponseModel>> UserProfileAsync();
     }
 }

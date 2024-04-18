@@ -21,16 +21,16 @@ namespace IdentityService.Api.Business
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public IdentityService(
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+            IHttpContextAccessor httpContextAccessor)
         {
             _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
-            _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
         public async Task<Response<LoginResponseModel>> LoginAsync(LoginRequestModel loginRequestModel)
@@ -110,6 +110,22 @@ namespace IdentityService.Api.Business
 
                 return Response<bool>.Fail(errorList);
             }
+        }
+
+        public async Task<Response<UserProfileResponseModel>> UserProfileAsync()
+        {
+            var userMailFromToken = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.Email)?.Value;
+            if (userMailFromToken != null)
+            {
+                var user = await _userManager.FindByEmailAsync(userMailFromToken);
+
+                if (user != null)
+                {
+                    return Response<UserProfileResponseModel>.Success(new UserProfileResponseModel(user.Name, user.Surname, user.Email));
+                }
+            }
+
+            return Response<UserProfileResponseModel>.Fail("User not found");
         }
     }
 }

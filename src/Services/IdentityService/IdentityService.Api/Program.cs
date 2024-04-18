@@ -1,5 +1,6 @@
 using IdentityService.Api.BusinessAbstractions;
 using IdentityService.Api.Extensions;
+using SelenyumMicroService.Bootstrapper;
 using SelenyumMicroService.ServiceDiscovery.Consul;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +9,12 @@ ArgumentNullException.ThrowIfNull(urls);
 
 // Add services to the container.
 builder.Services.AddDbContextConfigurations(builder.Configuration);
-builder.Services.AddAuthorization();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDefaultAuthentication(builder.Configuration);
 builder.Services.AddScoped<IIdentityService, IdentityService.Api.Business.IdentityService>();
+
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -32,8 +36,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
 app.UseConsul(app.Lifetime, consulSettings);
 
 app.Run(urls);

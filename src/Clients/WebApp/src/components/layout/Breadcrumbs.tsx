@@ -55,6 +55,21 @@ export default function IconBreadcrumbs() {
           link: "#",
         });
       }
+    } else if (pathname.startsWith("/signin")) {
+      items.push({
+        label: "Sign in",
+        link: "#",
+      });
+    } else if (pathname.startsWith("/signup")) {
+      items.push({
+        label: "Sign up",
+        link: "#",
+      });
+    } else if (pathname.startsWith("/userprofile")) {
+      items.push({
+        label: "User Profile",
+        link: "#",
+      });
     }
 
     setItems(items);

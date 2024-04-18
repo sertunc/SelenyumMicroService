@@ -6,6 +6,7 @@ import Layout from "./components/layout/Layout";
 import AxiosProvider from "./components/core/AxiosProvider";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+import UserProfile from "./components/user/UserProfile";
 import CatalogList from "./components/catalog/CatalogList";
 import CatalogDetail from "./components/catalog/CatalogDetail";
 import CatalogDetailNotFound from "./components/catalog/CatalogDetailNotFound";
@@ -31,6 +32,11 @@ function App(props: any) {
                 <Route
                   path="/signup"
                   element={<SignUp />}
+                  errorElement={<Error />}
+                />
+                <Route
+                  path="/userprofile"
+                  element={<UserProfile />}
                   errorElement={<Error />}
                 />
                 <Route

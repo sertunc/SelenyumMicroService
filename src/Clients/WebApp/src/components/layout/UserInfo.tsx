@@ -9,7 +9,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 export default function UserInfo() {
   const navigate = useNavigate();
 
-  const { user, setUserInfo } = useUser();
+  const { user, setUserInfo, totalItems } = useUser();
 
   const handleSignInClick = () => {
     navigate("/signin");
@@ -21,15 +21,21 @@ export default function UserInfo() {
     navigate("/");
   };
 
+  const handleUserProfileClick = () => {
+    navigate("/userprofile");
+  };
+
   return user?.token === "" ? (
     <Button color="inherit" onClick={handleSignInClick}>
       Hello, sign in
     </Button>
   ) : (
     <>
-      <Button color="inherit">Hello, {user?.userName}</Button>
+      <Button color="inherit" onClick={handleUserProfileClick}>
+        Hello, {user?.userName}
+      </Button>
       <IconButton color="inherit">
-        <Badge badgeContent={4} color="secondary">
+        <Badge badgeContent={totalItems()} color="secondary">
           <ShoppingCartIcon />
         </Badge>
       </IconButton>
