@@ -75,7 +75,7 @@ namespace IdentityService.Api.Business
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 var encodedToken = tokenHandler.WriteToken(token);
 
-                return Response<LoginResponseModel>.Success(new LoginResponseModel(loginRequestModel.Username, encodedToken), 200);
+                return Response<LoginResponseModel>.Success(new LoginResponseModel(loginRequestModel.Username, encodedToken), "User logged in successfully");
             }
             else
             {
