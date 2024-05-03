@@ -77,9 +77,9 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             {
                 var response = await httpClient.PostAsync(method, content);
                 ValidateResponse(response);
-                var result = ReadResponseStream(response);
+                var result = await ReadResponseStream(response);
 
-                return Deserialize<TReturn>(result.Result);
+                return Deserialize<TReturn>(result);
             }
             catch
             {
@@ -106,8 +106,8 @@ namespace SelenyumMicroService.Api.Client.BaseClients
             {
                 var response = await httpClient.GetAsync(method);
                 ValidateResponse(response);
-                var result = ReadResponseStream(response);
-                return Deserialize<TReturn>(result.Result);
+                var result = await ReadResponseStream(response);
+                return Deserialize<TReturn>(result);
             }
             catch
             {
